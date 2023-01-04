@@ -14,7 +14,7 @@ let dev = false;
 let uri = 'http://localhost:8000/graphql';
 
 if (dev === false)
-  uri = 'https://graafeja.tahtisadetta.fi/graphql';
+  uri = 'http://graafeja.tahtisadetta.fi/graphql';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
