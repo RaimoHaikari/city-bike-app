@@ -16,7 +16,7 @@ const App = () => {
       <Header />
 
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="*"  element={<LandingPage />} />
       </Routes>
 
       <Footer />

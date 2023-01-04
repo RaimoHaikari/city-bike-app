@@ -10,16 +10,13 @@ import {
   gql
 } from '@apollo/client'
 
-let dev = false;
-let uri = 'http://localhost:8000/graphql';
-
-if (dev === false)
-  uri = 'http://graafeja.tahtisadetta.fi/graphql';
-
+/*
+https://stackoverflow.com/questions/52130918/web-api-error-this-request-has-been-blocked-the-content-must-be-served-over-h
+*/
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: uri,
+    uri: 'http://graafeja.tahtisadetta.fi/graphql',
   })
 });
 
