@@ -1,13 +1,26 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 import Footer from "./components/footer";
 import Header from "./components/header";
 
+import LandingPage from "./pages/LandingPage";
+
 const App = () => {
   return (
-    <>
+    <Router>
       <Header />
-      <div>H.A.V.U.J.A...P.E.R.K.E.L.E!</div>
+
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
+
       <Footer />
-    </>
+    </Router>
   );
 };
 
