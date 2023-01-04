@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/city-bike-app/static/css/main.e6c13ad2.css",
-    "main.js": "/city-bike-app/static/js/main.b6f5986f.js",
+    "main.js": "/city-bike-app/static/js/main.bb552657.js",
     "index.html": "/city-bike-app/index.html",
     "main.e6c13ad2.css.map": "/city-bike-app/static/css/main.e6c13ad2.css.map",
-    "main.b6f5986f.js.map": "/city-bike-app/static/js/main.b6f5986f.js.map"
+    "main.bb552657.js.map": "/city-bike-app/static/js/main.bb552657.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.b6f5986f.js"
+    "static/js/main.bb552657.js"
   ]
 }
