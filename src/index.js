@@ -5,37 +5,24 @@ import App from './App';
 
 import {
   ApolloClient,
+  ApolloProvider,
   HttpLink,
-  InMemoryCache,
-  gql
+  InMemoryCache
 } from '@apollo/client'
 
-/*
-https://stackoverflow.com/questions/52130918/web-api-error-this-request-has-been-blocked-the-content-must-be-served-over-h
-*/
+const backendUri = 'http://graafeja.tahtisadetta.fi/graphql';
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: 'http://graafeja.tahtisadetta.fi/graphql',
+    uri: backendUri,
   })
 });
 
-const query = gql`
-  query {
-    users {
-      name
-    }
-  }
-`;
-
-client.query({ query })
-  .then((response) => {
-    console.log(response.data)
-  })
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <ApolloProvider client={client}>
     <App />
+  </ApolloProvider>
 );
 

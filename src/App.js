@@ -1,14 +1,14 @@
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import Footer from "./components/footer";
 import Header from "./components/header";
 
 import LandingPage from "./pages/LandingPage";
+import Stations from "./pages/Stations";
 
 const App = () => {
   return (
@@ -16,7 +16,8 @@ const App = () => {
       <Header />
 
       <Routes>
-        <Route path="*"  element={<LandingPage />} />
+        <Route path="/stations" element={<Stations />} />
+        <Route path="/" element={<LandingPage />} />
       </Routes>
 
       <Footer />
