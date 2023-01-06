@@ -1,17 +1,8 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import StationList from '../../components/stationList';
 
-const ALL_STATIONS = gql`
-  query {
-    stations {
-        stationID
-        nimi
-        palautuksia
-        lainoja
-        kapasiteetti
-    }
-  }
-`;
+import { ALL_STATIONS } from "../../graphql/queries"
+
 
 const Stations = () => {
 

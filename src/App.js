@@ -9,6 +9,8 @@ import Header from "./components/header";
 
 import LandingPage from "./pages/LandingPage";
 import Stations from "./pages/Stations";
+// Yksittäisen lainausaseman tiedot
+import Station from "./pages/Station"
 
 const App = () => {
   return (
@@ -16,6 +18,7 @@ const App = () => {
       <Header />
 
       <Routes>
+        <Route path="/stations/:id" element={<Station />} />
         <Route path="/stations" element={<Stations />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
