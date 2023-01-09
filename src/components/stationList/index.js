@@ -1,21 +1,20 @@
 import StationLink from "../stationLink";
 
-/*
-result.data.stations.map(p => p.nimi).join(', ')
-*/
+import StationsTable from "../StationsTable";
+
+/* 
+ *             <Search 
+                onSearch = { onSearch }
+                searchStr = { searchStr}
+            />
+ */
 const StationList = ({stations}) => {
     return (
         <div>
-            {
-                stations.map(p => {
-                    return (
-                        <StationLink 
-                            key= { p.stationID }
-                            data = { p }
-                        />
-                    )
-                })
-            }
+
+            <StationsTable 
+                stations= { stations }
+            />
         </div>
     );
 };

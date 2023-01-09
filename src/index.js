@@ -8,7 +8,13 @@ import {
   ApolloProvider,
   HttpLink,
   InMemoryCache
-} from '@apollo/client'
+} from '@apollo/client';
+
+import { Provider } from 'react-redux';
+import store from './store';
+
+import { ThemeProvider } from "styled-components";
+import BasicTheme from './themes/basicTheme';
 
 const backendUri = 'http://graafeja.tahtisadetta.fi/graphql';
 
@@ -22,7 +28,11 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
-    <App />
+    <Provider store={store}>
+      <ThemeProvider theme={BasicTheme}>
+        <App />
+      </ThemeProvider>
+    </Provider>
   </ApolloProvider>
 );
 

@@ -6,6 +6,7 @@ import {
 
 import Footer from "./components/footer";
 import Header from "./components/header";
+import Search from "./components/Search";
 
 import LandingPage from "./pages/LandingPage";
 import Stations from "./pages/Stations";
@@ -13,10 +14,14 @@ import Stations from "./pages/Stations";
 import Station from "./pages/Station"
 
 const App = () => {
+
+
+
+
   return (
     <Router>
       <Header />
-
+      <Search />
       <Routes>
         <Route path="/stations/:id" element={<Station />} />
         <Route path="/stations" element={<Stations />} />
