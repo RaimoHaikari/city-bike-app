@@ -11,15 +11,15 @@ import Search from "./components/Search";
 import LandingPage from "./pages/LandingPage";
 import Stations from "./pages/Stations";
 // Yksittäisen lainausaseman tiedot
-import Station from "./pages/Station"
+import Station from "./pages/Station";
+
+import './App.css';
 
 const App = () => {
 
-
-
-
   return (
     <Router>
+
       <Header />
       <Search />
       <Routes>

@@ -1,4 +1,16 @@
 const BasicTheme = {
+    breakPoint: {
+        xs: 0,
+        sm: '576px',
+        md: '768px',
+        lg: '992px',
+        xl: '1200px',
+        xxl: '1400px'
+    },
+    lineHeight: {
+        lhBody: 'var(--fs-600)',
+        lbPaginationElements: 'var(--fs-700)'
+    },
     color: {
         clrAccent500: 'var(--clr-accent-500)',
         clrAccent400: 'var(--clr-accent-400)',

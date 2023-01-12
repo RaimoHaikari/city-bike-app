@@ -31,15 +31,11 @@ export const ALL_STATIONS = gql`
     }
 `;
 
-export const SMALL_STATIONS = gql`
-    query {
-        stations {
-            stationID
-            nimi
-        }
-    }
-`;
 
+/*
+ * Hakee yhteenvedot asemilta suoritetuista lainoista ja sinne
+ * tapahtuneista palautuksista.
+ */
 export const GET_STATION_INFO = gql`
     query getStationInfo($stationId: Int!){
         trips(departureStationID: $stationId, first: 10) {
@@ -52,6 +48,33 @@ export const GET_STATION_INFO = gql`
                 returnStationId
                 coveredDistance
             }
+        }
+        departedTrips(departureStationID: $stationId) {
+            departureStationID
+            departureStationNimi
+            returnStationID
+            returnStationNimi
+            lkm
+        }
+        returnedTrips(returnStationID:  $stationId){
+            departureStationID
+            departureStationNimi
+            returnStationID
+            returnStationNimi
+            lkm
+        }
+    }
+`;
+
+/*
+ * Haetaan yhteenvedo siitä, minne asemalta lainatut pyörät palautettiin
+ */
+export const GET_DEPARTED_LOANS = gql`
+    query getDepartedLoans($stationId: Int!){
+        departedTrips(departureStationID: $stationId) {
+            departureStationID
+            returnStationID
+            lkm
         }
     }
 `;

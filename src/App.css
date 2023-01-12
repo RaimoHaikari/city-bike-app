@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
+/* 
+ * G E N E R A L   S T Y L I N G 
+ */
+ body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.container {
+
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+  background: var(--clr-neutral-100);
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 50em){
+
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*
+ * A P U L U O K K I A
+ */
+.padding-block-900 {
+  padding-block: var(--size-900);
+}
+
+.padding-block-700 {
+  padding-block: var(--size-700);
+}
+
+.bg-neutral-900 {
+  background-color: var(--clr-neutral-900);
+}
+
+.text-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+
+/*
+ * H E A D E R
+ */
+ .primary-header {
+  padding-top: var(--size-300);
+  display: flex; 
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;     /* Eka elementti alkuun, toka puolestaan loppuun */
+  align-items: center;                /* Keskittää pystysuunnassa */
+}
+
+.nav-list {
+  font-size: var(--fs-nav);
+  display: flex;
+  gap: clamp( var(--size-500), 5vw,  var(--size-800));
+  font-weight: var(--fw-semi-bold);
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--clr-primary-400);
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  text-decoration: none;
+  color: var(--clr-accent-400);
+}
+
+@media (max-width: 50em) {
+
+  .nav-list {
+      display: grid;
+      gap: var(--size-600);
+      text-align: center;
+      font-weight: var(--fw-bold);
+  }
+}
+
+/* 
+ * F O O T E R
+ */
+.primary-footer {}
+
+.primary-footer-logos {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  font-size: var(--fs-700);
 }
 
-.App-link {
-  color: #61dafb;
+.social-list {
+  display: flex;
+  gap: var(--size-200);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.social-icon {
+  color: var(--clr-accent-100); 
 }
+
+.social-list a:is(:hover, :focus) .social-icon {
+  fill: var(--clr-accent-400);
+}
+
+.primary-footer .copy-right-container {
+  display: flex;           /* establish flex container */
+  flex-direction: column;  /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center;     /* center items horizontally, in this case */
+}
+
+@media (min-width: 50em) {
+
+  .primary-footer-logos {
+    flex-direction: row;
+  }
+
+  .social-list {
+    display: flex;
+    gap: var(--size-400);
+    margin-left: var(--size-400);
+  }
+
+  /*
+  .social-icon {
+    width: var(--size-500);
+  }
+  */
+}
+

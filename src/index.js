@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
 import App from './App';
 
 import {
@@ -12,6 +12,8 @@ import {
 
 import { Provider } from 'react-redux';
 import store from './store';
+
+import './index.css';
 
 import { ThemeProvider } from "styled-components";
 import BasicTheme from './themes/basicTheme';
