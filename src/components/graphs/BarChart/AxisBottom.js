@@ -16,7 +16,7 @@ export const AxisBottom = ({ innerHeight, xScale, tickFormat }) => xScale.ticks(
                 dy=".71em"
                 y={innerHeight}
                 style={{ textAnchor: "middle" }}
-            >{tickFormat(tickValue)}</text>
+            >{tickValue}</text>
         </g>
     )
 });

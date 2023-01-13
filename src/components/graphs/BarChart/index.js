@@ -16,7 +16,7 @@ const margin = {
     top: 20,
     right: 20,
     bottom: 80,
-    left: 200
+    left: 250
 };
 
 const BarChart = ({data, objName}) => {
@@ -60,7 +60,6 @@ const BarChart = ({data, objName}) => {
             <AxisBottom 
                 innerHeight = { innerHeight }
                 xScale = { xScale }
-                tickFormat = {xAxisTickFormat}
             />
 
             <text

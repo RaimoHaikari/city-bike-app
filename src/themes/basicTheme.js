@@ -38,6 +38,10 @@ const BasicTheme = {
         size700: 'var(--size-700)',
         size800: 'var(--size-800)',
         size900: 'var(--size-900)'
+    },
+    tabs: {
+        headerHeight: '60px',
+        margingTop: '-60px'
     }
 }
 

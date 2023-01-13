@@ -9,7 +9,7 @@ export const Marks = ({ data, xScale, xValue, yScale, yValue, tooltipFormatValue
             width = {xScale(xValue(d))}
             height = {yScale.bandwidth()}
         >
-            <title>{tooltipFormatValue(xValue(d))}</title>
+            <title>{xValue(d)}</title>
         </rect>
     )
 

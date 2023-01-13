@@ -19,6 +19,7 @@ export const ALL_STATIONS = gql`
     query Query($searchStr: String){
         stations(first: 10, page: 1, searchStr:$searchStr, orderBy: [{column:NIMI, order:ASC}]){ 
             data{
+                stationID
                 nimi
                 kaupunki
                 kapasiteetti
@@ -48,6 +49,12 @@ export const GET_STATION_INFO = gql`
                 returnStationId
                 coveredDistance
             }
+        }
+        station(stationID: $stationId){
+            stationID
+            nimi
+            x
+            y
         }
         departedTrips(departureStationID: $stationId) {
             departureStationID

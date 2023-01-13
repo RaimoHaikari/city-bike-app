@@ -13,6 +13,10 @@ export const Table = styled.table`
         text-align: left;
         padding: 16px;
     }
+
+    tr {
+        cursor: pointer;
+    }
       
     tr:nth-child(even) {
         background-color: #f2f2f2

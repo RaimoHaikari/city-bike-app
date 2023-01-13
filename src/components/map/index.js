@@ -13,10 +13,10 @@ import "./index.css";
 /*
 24.820099,60.184987
  */
-const Map = () => {
+const Map = ({lat, lng}) => {
 
     //const [center, setCenter] = useState({lat: 24.820099, lng: 60.184987});
-    const [center, setCenter] = useState([60.184987,24.820099]);
+    const [center, setCenter] = useState([lat,lng]);
     const ZOOM_LEVEL = 15;
     const mapRef = useRef();
 

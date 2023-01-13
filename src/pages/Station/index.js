@@ -2,8 +2,10 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import BarChart from '../../components/graphs/BarChart';
-import CDD from "../../components/graphs/CDD";
-import Map from "../../components/map"
+
+import LoansInfo from '../../components/station/LoansInfo';
+import Map from "../../components/map";
+import Tabs from '../../components/tabs';
 
 import {
     GET_STATION_INFO
@@ -28,47 +30,68 @@ const Station = () => {
         return <div>Loading....</div>
     }
 
-    console.log(result.data)
+    console.log(result.data);
+    console.log(result.data.station);
     //console.log(result.data.departedTrips.slice(0, 15))
 
 
-    /*
-            <CDD 
-                loans={result.data.departedTrips.slice(0, 15)}
-            />
-    */
+    const Home = () => {
+        return (
+            <div>
+                Aktiivinen juttu hei
+            </div>
+        )
+    }
+
+    const Contact = () => {
+        return (
+            <div>
+            Voisit ottaa joskus yhteyttä
+            </div>
+        )
+    }
+
+    const Analyse = () => {
+        return (
+            <div>
+            Analyysi on päivän san
+            </div>
+        )
+    }
+
+    const About = () => {
+        return (
+            <div>
+                No täällä sit juttua siitä mitä tää nyt on
+            </div>
+        )
+    }
 
     return (
         <div className='container'>
 
-            <h3>{`Asema: ${id}`}</h3>
+            <Tabs 
+                config = {[
+                    {
+                        header: "Home",
+                        component: <Home />
+                    },
+                    {
+                        header: "Kartta",
+                        component: <Map lat = {result.data.station.y} lng = {result.data.station.x} />
+                    },
+                    {
+                        header: "Lainat",
+                        component: <LoansInfo data = {result.data} />
+                    },
+                    {
+                        header: "About",
+                        component: <About />
+                    }
+                ]}
 
-            <div className='even-columns'>
-
-                <div>
-
-                    <Map />
-
-                
-                </div>
-
-                <div>
-
-                    <BarChart 
-                        data= { result.data.departedTrips.slice(0, 15) }
-                        objName = "returnStationNimi"
-                    />
-
-                    <BarChart 
-                        data= { result.data.returnedTrips.slice(0, 15) }
-                        objName = "departureStationNimi"
-                    />
-
-                </div>
-            
-            
-            </div>
-            
+                name = {result.data.station.nimi}
+            />
             
 
 
@@ -77,22 +100,7 @@ const Station = () => {
     );
 };
 
-/*
 
-                    <ul>
-                        {
-                            result.data.trips.data.map((t, i) => {
-                                return (
-                                    <li
-                                        key ={i}
-                                    >
-                                    {`${t.departureStationID} - ${t.returnStationId} : ${t.coveredDistance}`}
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-*/
 
 
 
