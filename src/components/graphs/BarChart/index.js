@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { format, max, scaleBand, scaleLinear } from 'd3';
 
 import { AxisBottom } from './AxisBottom';
@@ -9,21 +11,22 @@ import {
 } from "./barchartElements";
 
 
-const width = 960;
-const height = 800;
+const width = 800;
+const height = 600;
 
 const margin = {
     top: 20,
-    right: 20,
+    right: 100,
     bottom: 80,
     left: 250
 };
 
-const BarChart = ({data, objName}) => {
+const BarChart = ({data, linkObj, objName, stationName, xAxisLabel}) => {
+
+    const navigate = useNavigate();
 
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
-
 
     const xValue = d => d.lkm;
     const yValue = d => d[objName];
@@ -43,18 +46,27 @@ const BarChart = ({data, objName}) => {
         .range([0, innerHeight])
         .padding(0.1);
 
+    
+    const lblClickHandler = (id) => {
 
-    /*
-<svg width={width} height={height}>
-<Svg viewBox="0 0 194.36 12.64" >
-<svg  viewBox=`0 0 ${width} ${height}`>
-    */
+        let x = data.filter(d => d[objName] === id);
+
+        if(x.length !== 1) return;
+
+        x = x[0];
+        //console.log(".", linkObj)
+        
+        navigate(`/stations/${x[linkObj]}`);
+    }
+
     return (
-        <Svg  viewBox={`0 0 ${width} ${height}`}>
+        <Svg viewBox={`0 0 ${width} ${height}`}>
             <g transform={`translate(${margin.left},${margin.top})`}>
 
             <AxisLeft 
-                yScale={ yScale }
+                yScale= { yScale } 
+                stationName = { stationName }
+                clickHandler = { lblClickHandler}
             />
 
             <AxisBottom 
@@ -67,10 +79,13 @@ const BarChart = ({data, objName}) => {
                 x={ innerWidth / 2 }
                 y = { innerHeight + xAxisLabelOffset }
                 textAnchor = "middle"
-            >Population</text>
+            >{xAxisLabel}</text>
 
             <Marks 
+                activeName = { stationName }
+                clickHandler = { lblClickHandler}
                 data = { data }
+                sourceObj = { objName }
                 yScale = { yScale }
                 yValue = { yValue }
                 xScale = { xScale }

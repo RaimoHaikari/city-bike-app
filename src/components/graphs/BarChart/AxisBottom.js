@@ -1,4 +1,6 @@
-export const AxisBottom = ({ innerHeight, xScale, tickFormat }) => xScale.ticks().map(tickValue => {
+export const AxisBottom = ({ innerHeight, xScale, tickFormat }) => xScale.ticks().map((tickValue, i) => {
+    
+    if(i%2 !== 0) return null;
 
     return (
         <g 

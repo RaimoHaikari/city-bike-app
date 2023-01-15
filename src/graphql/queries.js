@@ -63,7 +63,11 @@ export const GET_STATION_INFO = gql`
             returnStationNimi
             lkm
         }
-        returnedTrips(returnStationID:  $stationId){
+        departuresByTheHour(departureStationID: $stationId)
+        departuresByTheDayOfWeek(departureStationID:  $stationId)
+        returnsByTheDayOfWeek(returnStationID:$stationId)
+        returnsByTheHour(returnStationID:$stationId)
+        returnedTrips(returnStationID: $stationId){
             departureStationID
             departureStationNimi
             returnStationID

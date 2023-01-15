@@ -30,8 +30,8 @@ const Station = () => {
         return <div>Loading....</div>
     }
 
-    console.log(result.data);
-    console.log(result.data.station);
+    // console.log(result.data);
+    //console.log(result.data.station);
     //console.log(result.data.departedTrips.slice(0, 15))
 
 
@@ -43,51 +43,53 @@ const Station = () => {
         )
     }
 
-    const Contact = () => {
-        return (
-            <div>
-            Voisit ottaa joskus yhteyttä
-            </div>
-        )
-    }
-
-    const Analyse = () => {
-        return (
-            <div>
-            Analyysi on päivän san
-            </div>
-        )
-    }
-
-    const About = () => {
-        return (
-            <div>
-                No täällä sit juttua siitä mitä tää nyt on
-            </div>
-        )
-    }
-
     return (
         <div className='container'>
 
             <Tabs 
                 config = {[
                     {
-                        header: "Home",
+                        header: "Yhteenveto",
                         component: <Home />
+                    },
+                    {
+                        header: "Lainat",
+                        component: <LoansInfo 
+                                        data = {result.data} 
+                                        settings = {{ 
+                                            loansData: 'departedTrips',
+                                            eventObj: 'returnStationNimi',
+                                            linkObj: 'returnStationID',
+                                            xAxisLabel: 'Lainauksia',
+                                            eventHour: 'departuresByTheHour',
+                                            evendWeekday: 'departuresByTheDayOfWeek',
+                                            titleDayOfWeek: 'Minä viikonpäivänä lainattiin',
+                                            titleEventHour: 'Mihin aikaan lainattiin',
+                                            titleEventType: 'Minne oltiin menossa'
+                                         }}
+                                    />
+                    },
+                    {
+                        header: "Palautukset",
+                        component: <LoansInfo 
+                                        data = {result.data} 
+                                        settings = {{ 
+                                            loansData: 'returnedTrips',
+                                            eventObj: 'departureStationNimi',
+                                            linkObj: 'departureStationID',
+                                            xAxisLabel: 'Palautuksia',
+                                            eventHour: 'returnsByTheHour',
+                                            evendWeekday: 'returnsByTheDayOfWeek',
+                                            titleDayOfWeek: 'Minä viikonpäivänä palautettiin',
+                                            titleEventHour: 'Mihin aikaan palautettiin',
+                                            titleEventType: 'Mistä oltiin tulossa'
+                                         }}
+                                    />
                     },
                     {
                         header: "Kartta",
                         component: <Map lat = {result.data.station.y} lng = {result.data.station.x} />
                     },
-                    {
-                        header: "Lainat",
-                        component: <LoansInfo data = {result.data} />
-                    },
-                    {
-                        header: "About",
-                        component: <About />
-                    }
                 ]}
 
                 name = {result.data.station.nimi}
@@ -100,7 +102,27 @@ const Station = () => {
     );
 };
 
+/*
 
+                    {
+                        header: "Palautukset",
+                        component: <LoansInfo 
+                                        data = {result.data} 
+                                        settings = {{ 
+                                            loansData: 'returnedTrips',
+                                            eventObj: 'departureStationNimi',
+                                            xAxisLabel: 'Palautuksia',
+                                            eventHour: 'returnsByTheHour',
+                                            evendWeekday: 'returnsByTheDayOfWeek',
+                                            titleDayOfWeek: 'Minä viikonpäivänä palautettiin',
+                                            titleEventHour: 'Mihin aikaan palautettiin',
+                                            titleEventType: 'Mistä oltiin tulossa'
+                                         }}
+                                    />
+                    },
+
+
+*/
 
 
 
