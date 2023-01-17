@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    searchStr: ""
+    searchStr: "A",
+    initialLetters: []
 }
 
 const searchSlice = createSlice({
@@ -18,10 +19,22 @@ const searchSlice = createSlice({
             }
 
             return newState;
+        },
+        setInitialLetters(state, action){
+
+            const {letters} = action.payload;
+
+            const newState = {
+                ...state,
+                initialLetters: letters
+            }
+
+            return newState;
+
         }
     }
 })
 
-export const { setSearchStr } = searchSlice.actions;
+export const { setInitialLetters, setSearchStr } = searchSlice.actions;
 
 export default searchSlice.reducer;

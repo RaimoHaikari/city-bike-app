@@ -17,7 +17,7 @@ import { gql } from '@apollo/client';
 */
 export const ALL_STATIONS = gql`
     query Query($searchStr: String){
-        stations(first: 10, page: 1, searchStr:$searchStr, orderBy: [{column:NIMI, order:ASC}]){ 
+        stations(first: 100, page: 1, searchStr:$searchStr, orderBy: [{column:NIMI, order:ASC}]){ 
             data{
                 stationID
                 nimi
@@ -29,6 +29,15 @@ export const ALL_STATIONS = gql`
                 count
             }
         }
+    }
+`;
+
+/*
+ * Hakee listauksen lainausaseminen nimien alkukirjaimista
+ */
+export const FIRST_LETTERS_OF_STATION_NAMES = gql`
+    query {
+        firstLettersOfStationNames
     }
 `;
 
@@ -86,6 +95,27 @@ export const GET_DEPARTED_LOANS = gql`
             departureStationID
             returnStationID
             lkm
+        }
+    }
+`;
+
+/*
+ * Haetaan toimintaa yleisesti kuvaavat tunnusluvut
+ */
+export const GENERAL_SUMMARY = gql`
+    query {
+        summary{
+            number_of_stations
+            number_of_bikes
+            events_in_day {
+                day
+                month
+                number_of_events
+            }
+            events_by_the_dayOfWeek {
+                day_of_week
+                number_of_events
+            }
         }
     }
 `;

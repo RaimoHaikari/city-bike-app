@@ -4,9 +4,18 @@ import {
   Route
 } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+import { useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+
+import { FIRST_LETTERS_OF_STATION_NAMES } from "./graphql/queries";
+import {
+  setInitialLetters
+} from "./reducers/searchReducer";
+
+
 import Footer from "./components/footer";
 import Header from "./components/header";
-import Search from "./components/Search";
 
 import LandingPage from "./pages/LandingPage";
 import Stations from "./pages/Stations";
@@ -17,11 +26,28 @@ import './App.css';
 
 const App = () => {
 
+  const dispatch = useDispatch();
+
+  const result = useQuery( FIRST_LETTERS_OF_STATION_NAMES );
+
+  useEffect(() => {
+
+      if(result.data){
+        dispatch(setInitialLetters({
+          letters: result.data.firstLettersOfStationNames
+        }))
+      }
+
+  }, [result])
+
+  if(result.loading) {
+      return <div>Loading....</div>
+  }
+
   return (
     <Router>
 
       <Header />
-      <Search />
       <Routes>
         <Route path="/stations/:id" element={<Station />} />
         <Route path="/stations" element={<Stations />} />

@@ -30,11 +30,6 @@ const Station = () => {
         return <div>Loading....</div>
     }
 
-    // console.log(result.data);
-    //console.log(result.data.station);
-    //console.log(result.data.departedTrips.slice(0, 15))
-
-
     const Home = () => {
         return (
             <div>
@@ -42,6 +37,8 @@ const Station = () => {
             </div>
         )
     }
+
+    console.log(result.data)
 
     return (
         <div className='container'>

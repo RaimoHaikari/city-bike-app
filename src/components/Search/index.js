@@ -16,9 +16,7 @@ const Search = () => {
     const { searchStr } = useSelector(state => state.search)
 
     const onInputChange = value => {
-
         dispatch(setSearchStr({str: value}))
-
     }
 
 

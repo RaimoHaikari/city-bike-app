@@ -20,9 +20,6 @@ const Header = () => {
                             <li>
                                 <Link to="/stations">Asemat</Link>
                             </li>
-                            <li>
-                                <Link to="/stations/1">Bööle</Link>
-                            </li>
                         </ul>
                     </nav>
                 
