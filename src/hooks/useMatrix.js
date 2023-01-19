@@ -11,8 +11,10 @@ export const useMatrix = (loans) => {
 
         loans.forEach( l => {
 
-            const depName = l['departureStationNimi'];
-            const retName =  l['returnStationNimi'];
+            
+
+            const depName = l['departureStationName'];
+            const retName =  l['returnStationName'];
 
             if(depName in uniqueNames === false) uniqueNames[depName] = true
             
@@ -27,14 +29,15 @@ export const useMatrix = (loans) => {
     const setupNamesAndMatrix = () => {
 
         let _names = getNames();
+
         
         const index = {};
         _names.forEach((name, i) => index[name] = i);
 
         const m = Object.keys(index).map(() => new Array(_names.length).fill(0));
 
-        for(const {departureStationNimi, returnStationNimi, lkm} of loans)
-            m[index[departureStationNimi]][index[returnStationNimi]] = lkm;
+        for(const {departureStationName, returnStationName, lkm} of loans)
+            m[index[departureStationName]][index[returnStationName]] = lkm;
 
         setMatrix(m)
         setNames(_names)

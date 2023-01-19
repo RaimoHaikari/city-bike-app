@@ -7,11 +7,9 @@ import {
 
 const Tabs = ({name, config}) => {
 
-    const [ active, setActive ] = useState(2);
+    const [ active, setActive ] = useState(0);
 
     const indicatoLeft = ((active / config.length) * 100).toFixed(0) + '%';
-
-    console.log(".", name)
 
     return (
         <Container>

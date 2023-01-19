@@ -12,12 +12,3 @@ export const Marks = ({ data, innerHeight, xScale, xValue, yScale, yValue, toolt
     )
 
 });
-
-
-/*
-            x = {0}
-            y = {yScale(yValue(d))}
-            width = {xScale(xValue(d))}
-            height = {yScale.bandwidth()}
-
-*/

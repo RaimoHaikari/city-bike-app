@@ -2,13 +2,14 @@ export const Labels = ({ data, innerHeight, xScale, xValue, yScale, yValue, tool
 
     return(
         <g
-            key={`hsTop-${i}`}
-            transform={`translate(${yScale(yValue(d))},${innerHeight})`}
+            key= { `hsTop-${i}` }
+            transform= { `translate(${yScale(yValue(d))},${innerHeight})` }
+            className = "labels"
         >
             <text 
                 x = { yScale.bandwidth() / 2 }
-                y = { 20 }
-                text-anchor="middle"
+                y = { 35 }
+                textAnchor="middle"
             >{yValue(d)}</text>
         </g>
     )

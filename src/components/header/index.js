@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import Sitelogo from "../logos/Sitelogo";
 
+import Search from "../Search";
+
 const Header = () => {
 
     return (
@@ -19,6 +21,9 @@ const Header = () => {
                         <ul role="list" aria-label="Primary" className="nav-list" id="primary-navigation">
                             <li>
                                 <Link to="/stations">Asemat</Link>
+                            </li>
+                            <li>
+                                <Link to="/journeys">Lainat</Link>
                             </li>
                         </ul>
                     </nav>

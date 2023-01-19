@@ -11,7 +11,7 @@ const width = 800;
 const height = 800;
 
 const margin = {
-    top: 100,
+    top: 80,
     right: 10,
     bottom: 50,
     left: 10
@@ -92,23 +92,3 @@ const D3BarChart = ({data}) => {
 
 export default D3BarChart;
 
-/*
-
-            <AxisLeft 
-                yScale={ yScale }
-            />
-
-            <AxisBottom 
-                innerHeight = { innerHeight }
-                xScale = { xScale }
-                tickFormat = {xAxisTickFormat}
-            />
-
-            <text
-                className = "axisLabel"
-                x={ innerWidth / 2 }
-                y = { innerHeight + xAxisLabelOffset }
-                textAnchor = "middle"
-            >Population</text>
-
-*/

@@ -2,7 +2,9 @@ import { useQuery } from '@apollo/client';
 
 import Summary from "../../components/summary";
 import WideSummary from '../../components/summary/WideSummary';
-import VerticalBarchart from "../../components/graphs/VerticalBarchart"
+
+import BarchartContainer from "../../components/summary/BarchartContainer";
+import CDDContainer from '../../components/summary/CDDContainer';
 
 import { getWeekday } from "../../misc/helperFunctions";
 
@@ -64,11 +66,10 @@ const LandingPage = () => {
     
     }
 
+    // console.log(result.data.popularTrips);
+
     return (
         <div className='container'>
-            <VerticalBarchart 
-                data = { result.data.summary.events_by_the_dayOfWeek }
-            />
             <Summary 
                 nOfStations = {result.data.summary.number_of_stations}
                 nOfBicycles = {result.data.summary.number_of_bikes}
@@ -76,6 +77,12 @@ const LandingPage = () => {
             />
             <WideSummary 
                 values = { getEventCountSummary() }
+            />
+            <BarchartContainer 
+                eventByWeekday= { result.data.summary.events_by_the_dayOfWeek } 
+            />
+            <CDDContainer 
+                popularTrips= { result.data.popularTrips }
             />
         </div>
     );

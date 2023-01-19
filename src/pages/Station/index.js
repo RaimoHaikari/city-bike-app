@@ -1,8 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import BarChart from '../../components/graphs/BarChart';
-
 import LoansInfo from '../../components/station/LoansInfo';
 import Map from "../../components/map";
 import Tabs from '../../components/tabs';
@@ -33,12 +31,13 @@ const Station = () => {
     const Home = () => {
         return (
             <div>
-                Aktiivinen juttu hei
+                <p>{result.data.station.osoite}</p>
+                <p>{result.data.station.kaupunki}</p>
+                <p>Lainoja: {result.data.departedTrips.length}</p>
+                <p>Palautuksia: {result.data.returnedTrips.length}</p>
             </div>
         )
     }
-
-    console.log(result.data)
 
     return (
         <div className='container'>

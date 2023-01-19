@@ -2,8 +2,9 @@ export const Values = ({ data, innerHeight, xScale, xValue, yScale, yValue, tool
 
     return(
         <g
-            key={`hsTop-${i}`}
-            transform={`translate(${yScale(yValue(d))},${0})`}
+            key = {`hsTop-${i}`}
+            transform = {`translate(${yScale(yValue(d))},${0})`}
+            className = "values"
         >
             <text 
                 x = { yScale.bandwidth() / 2 }

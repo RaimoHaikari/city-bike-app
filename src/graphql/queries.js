@@ -62,6 +62,8 @@ export const GET_STATION_INFO = gql`
         station(stationID: $stationId){
             stationID
             nimi
+            osoite
+            kaupunki
             x
             y
         }
@@ -115,6 +117,37 @@ export const GENERAL_SUMMARY = gql`
             events_by_the_dayOfWeek {
                 day_of_week
                 number_of_events
+            }
+        
+        }
+        popularTrips{
+            departureStationName
+            returnStationName
+            lkm
+        } 
+    }
+`;
+
+
+/*
+ * Hakee yhteenvedot asemilta suoritetuista lainoista ja sinne
+ * tapahtuneista palautuksista.
+ */
+export const GET_JOUNERYS = gql`
+    query getStationInfo($first: Int!, $page: Int!){
+        journeys(first: $first, page: $page){ 
+            data{
+                departureStationName
+                returnStationName
+                coveredDistance
+                duration
+            }
+            paginatorInfo {
+                hasMorePages
+                currentPage
+                count
+                lastPage
+                total
             }
         }
     }

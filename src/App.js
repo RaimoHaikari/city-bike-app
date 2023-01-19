@@ -18,9 +18,10 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 
 import LandingPage from "./pages/LandingPage";
+
 import Stations from "./pages/Stations";
-// Yksittäisen lainausaseman tiedot
 import Station from "./pages/Station";
+import Journeys from "./pages/Journeys";
 
 import './App.css';
 
@@ -51,6 +52,7 @@ const App = () => {
       <Routes>
         <Route path="/stations/:id" element={<Station />} />
         <Route path="/stations" element={<Stations />} />
+        <Route path="/journeys" element={<Journeys />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
 
