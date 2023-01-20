@@ -35,8 +35,6 @@ const labelRingID = "labelRing";
 
 const CDD = ({loans}) => {
 
-    console.log(loans)
-
     const { matrix, names } = useMatrix(loans);
 
     const width = 840;

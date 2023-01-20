@@ -28,8 +28,6 @@ const StationList = ({alphabets, stations}) => {
         navigate(`/stations/${d.stationID}`);
     }
 
-    console.log(".", result.data.stations)
-
     return (
         <>
         {

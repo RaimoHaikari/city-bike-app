@@ -9,7 +9,7 @@ export const Values = ({ data, innerHeight, xScale, xValue, yScale, yValue, tool
             <text 
                 x = { yScale.bandwidth() / 2 }
                 y = { innerHeight - xScale(xValue(d)) - 20 }
-                text-anchor="middle"
+                textAnchor="middle"
             >{xValue(d)}</text>
         </g>
     )

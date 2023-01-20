@@ -9,7 +9,8 @@ const Tabs = ({name, config}) => {
 
     const [ active, setActive ] = useState(0);
 
-    const indicatoLeft = ((active / config.length) * 100).toFixed(0) + '%';
+    //const indicatoLeft = ((active / config.length) * 100).toFixed(0) + '%';
+    const indicatoLeft = 2 +(active * (1/4) * 100) + '%';
 
     return (
         <Container>

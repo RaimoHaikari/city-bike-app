@@ -35,7 +35,7 @@ const App = () => {
 
       if(result.data){
         dispatch(setInitialLetters({
-          letters: result.data.firstLettersOfStationNames
+          stationNames: result.data.finnishStationNames
         }))
       }
 
@@ -44,6 +44,8 @@ const App = () => {
   if(result.loading) {
       return <div>Loading....</div>
   }
+
+  console.log(result.data);
 
   return (
     <Router>

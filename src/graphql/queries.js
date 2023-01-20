@@ -37,7 +37,10 @@ export const ALL_STATIONS = gql`
  */
 export const FIRST_LETTERS_OF_STATION_NAMES = gql`
     query {
-        firstLettersOfStationNames
+        finnishStationNames {
+            stationID
+            nimi
+        }
     }
 `;
 

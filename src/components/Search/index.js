@@ -13,7 +13,7 @@ const Search = () => {
 
     const dispatch = useDispatch();
 
-    const { searchStr } = useSelector(state => state.search)
+    const { searchStr } = useSelector(state => state.search);
 
     const onInputChange = value => {
         dispatch(setSearchStr({str: value}))

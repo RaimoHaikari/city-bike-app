@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import LoansInfo from '../../components/station/LoansInfo';
+import Home from '../../components/station';
 import Map from "../../components/map";
 import Tabs from '../../components/tabs';
 
@@ -28,6 +29,7 @@ const Station = () => {
         return <div>Loading....</div>
     }
 
+    /*
     const Home = () => {
         return (
             <div>
@@ -38,7 +40,17 @@ const Station = () => {
             </div>
         )
     }
+    */
 
+    /*
+
+
+
+                                        {
+                        header: "Kartta",
+                        component: <Map lat = {result.data.station.y} lng = {result.data.station.x} />
+                    },
+    */
     return (
         <div className='container'>
 
@@ -46,7 +58,9 @@ const Station = () => {
                 config = {[
                     {
                         header: "Yhteenveto",
-                        component: <Home />
+                        component: <Home 
+                            data = {result.data}
+                        />
                     },
                     {
                         header: "Lainat",
@@ -81,11 +95,7 @@ const Station = () => {
                                             titleEventType: 'Mistä oltiin tulossa'
                                          }}
                                     />
-                    },
-                    {
-                        header: "Kartta",
-                        component: <Map lat = {result.data.station.y} lng = {result.data.station.x} />
-                    },
+                    }
                 ]}
 
                 name = {result.data.station.nimi}

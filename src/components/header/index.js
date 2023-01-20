@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import Sitelogo from "../logos/Sitelogo";
 
-import Search from "../Search";
+import DropDownSearch from "../Search/dropDownSearch";
 
 const Header = () => {
 
@@ -16,6 +16,8 @@ const Header = () => {
                     <Link to="/">
                         <Sitelogo />
                     </Link>
+
+                    <DropDownSearch />
 
                     <nav className="primary-navigation">
                         <ul role="list" aria-label="Primary" className="nav-list" id="primary-navigation">

@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     searchStr: "A",
-    initialLetters: [],
+    initialLetters: [],     // Asemanimien alkukirjaimet
+    finnishNames: [],       // Suomenkieliset asemanimet
     page: 1,                // Lainauslistauksen aktiivinen sivu
     first: 100,
     firstPage: undefined,
@@ -31,6 +32,39 @@ const setControls = (state, lastPage, count) => {
 
 }
 
+/*
+ * Selvitetään uniikit asemanimen alkukirjaimet.
+ */
+const getFirstLetters = (names) => {
+
+    const letters = {}
+
+    names.forEach(element => {
+
+        const c = element.nimi.charAt(0);
+
+        if(!(c in letters)) 
+            letters[c] = true;
+
+    });
+
+    return Object.keys(letters);
+}
+
+const setNamesAndFirstLetters = (state, stationNames) => {
+
+    const initialLetters = getFirstLetters(stationNames);
+
+    const newState = {
+        ...state,
+        initialLetters: initialLetters,
+        finnishNames: stationNames
+    }
+
+    return newState;
+
+}
+
 const searchSlice = createSlice({
     name: 'search',
     initialState,
@@ -43,14 +77,9 @@ const searchSlice = createSlice({
         },
         setInitialLetters(state, action){
 
-            const { letters } = action.payload;
+            const { stationNames } = action.payload;
 
-            const newState = {
-                ...state,
-                initialLetters: letters
-            }
-
-            return newState;
+            return setNamesAndFirstLetters(state, stationNames);
 
         },
         setSearchStr(state, action){
