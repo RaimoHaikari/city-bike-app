@@ -1,7 +1,9 @@
 import BarChart from "../graphs/BarChart";
 import Histogram from "../graphs/Histogram";
+import VerticalBarChart from "../graphs/VerticalBarchart";
 
-const weekdays = ['Maanantai','Tiistai','Keskiviikko','Torstai','Perjantai','Lauantai','Sunnuntai']
+const weekdays = ['Ma','Ti','Ke','To','Pe','La','Su'];
+const MONTH_NAME = ['Toukokuu', 'Kesäkuu', 'Heinäkuu']
 
 const LoansInfo = ({data, settings}) => {
 
@@ -30,6 +32,8 @@ const LoansInfo = ({data, settings}) => {
 
         data[settings.evendWeekday].map((element, i) => {
 
+            console.log(element)
+
             for(let x = 0; x < element; x++) {
 
                 dayOfWeek.push({
@@ -43,7 +47,13 @@ const LoansInfo = ({data, settings}) => {
         return dayOfWeek;
     }
 
-    //console.log(data)
+
+
+    const yValue_dayOfWeek = d => {
+        return weekdays[d[settings.evendWeekdayLbl]-1];
+    };
+
+    const yValue_month = d => MONTH_NAME[d[settings.eventMonthLbl] - 5]
 
     return (
         <>
@@ -62,13 +72,20 @@ const LoansInfo = ({data, settings}) => {
 
                 <h3>{settings.titleDayOfWeek}</h3>
 
-                <Histogram 
-                    data={ getEventWeekdays() }
-                    settings = {{
-                        label: "weekday",
-                        binCount: 7
-                    }}
+                <VerticalBarChart 
+                  dispWidth="500" 
+                  data= { data[settings.evendWeekdayObj] } 
+                  yValue = { yValue_dayOfWeek }
                 />
+
+                <h3>{settings.titleEventMonth}</h3>
+
+                <VerticalBarChart 
+                  dispWidth="500" 
+                  data= { data[settings.evendMonthObj] } 
+                  yValue = { yValue_month }
+                />
+
 
                 <h3>{settings.titleEventHour}</h3>
 

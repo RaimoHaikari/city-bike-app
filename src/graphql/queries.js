@@ -78,8 +78,14 @@ export const GET_STATION_INFO = gql`
             lkm
         }
         departuresByTheHour(departureStationID: $stationId)
-        departuresByTheDayOfWeek(departureStationID:  $stationId)
-        returnsByTheDayOfWeek(returnStationID:$stationId)
+        departuresByTheDayOfWeek(departureStationID:  $stationId){
+            day_of_week
+            number_of_events
+        }
+        returnsByTheDayOfWeek(returnStationID:$stationId){
+            day_of_week
+            number_of_events
+        }
         returnsByTheHour(returnStationID:$stationId)
         returnedTrips(returnStationID: $stationId){
             departureStationID
@@ -87,6 +93,14 @@ export const GET_STATION_INFO = gql`
             returnStationID
             returnStationNimi
             lkm
+        }
+        departuresByTheMonth(departureStationID: $stationId){
+            month
+            number_of_events
+        }
+        returnsByTheMonth(returnStationID: $stationId){
+            month
+            number_of_events
         }
     }
 `;

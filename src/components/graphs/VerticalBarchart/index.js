@@ -17,7 +17,7 @@ const margin = {
     left: 10
 };
 
-const D3BarChart = ({data, yValue}) => {
+const D3BarChart = ({data, yValue, dispWidth=800}) => {
 
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -43,9 +43,11 @@ const D3BarChart = ({data, yValue}) => {
     /*
 
 
+
+
     */
     return (
-        <Svg viewBox={`0 0 ${width} ${height}`}>
+        <Svg width = {dispWidth} viewBox={`0 0 ${width} ${height}`}>
             <g transform={`translate(${margin.left},${margin.top})`}>
 
                 <Labels 
@@ -68,7 +70,6 @@ const D3BarChart = ({data, yValue}) => {
                     xValue = { xValue }
                     tooltipFormatValue = {xAxisTickFormat}                
                 />
-
 
            
                 <Marks 

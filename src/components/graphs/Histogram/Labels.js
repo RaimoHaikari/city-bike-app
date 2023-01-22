@@ -7,7 +7,7 @@ export const Labels = ({ barValueAdjust, data, x, objName }) => data.map((B,i) =
         >
             <text 
                 transform="translate(0,0) rotate(90)"
-                text-anchor="start"
+                textAnchor="start"
             >
             {B[0][objName]}
             </text>

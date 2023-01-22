@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/client';
 
 import LoansInfo from '../../components/station/LoansInfo';
 import Home from '../../components/station';
-import Map from "../../components/map";
 import Tabs from '../../components/tabs';
 
 import {
@@ -30,27 +29,8 @@ const Station = () => {
     }
 
     /*
-    const Home = () => {
-        return (
-            <div>
-                <p>{result.data.station.osoite}</p>
-                <p>{result.data.station.kaupunki}</p>
-                <p>Lainoja: {result.data.departedTrips.length}</p>
-                <p>Palautuksia: {result.data.returnedTrips.length}</p>
-            </div>
-        )
-    }
-    */
-
-    /*
-
-
-
-                                        {
-                        header: "Kartta",
-                        component: <Map lat = {result.data.station.y} lng = {result.data.station.x} />
-                    },
-    */
+     *
+     */
     return (
         <div className='container'>
 
@@ -72,10 +52,14 @@ const Station = () => {
                                             linkObj: 'returnStationID',
                                             xAxisLabel: 'Lainauksia',
                                             eventHour: 'departuresByTheHour',
-                                            evendWeekday: 'departuresByTheDayOfWeek',
+                                            evendWeekdayObj: 'departuresByTheDayOfWeek',
+                                            evendWeekdayLbl: 'day_of_week',
                                             titleDayOfWeek: 'Minä viikonpäivänä lainattiin',
                                             titleEventHour: 'Mihin aikaan lainattiin',
-                                            titleEventType: 'Minne oltiin menossa'
+                                            titleEventType: 'Minne oltiin menossa',
+                                            titleEventMonth: 'Missä kuussa lainattiin',
+                                            evendMonthObj: 'departuresByTheMonth',
+                                            eventMonthLbl: 'month'
                                          }}
                                     />
                     },
@@ -89,10 +73,14 @@ const Station = () => {
                                             linkObj: 'departureStationID',
                                             xAxisLabel: 'Palautuksia',
                                             eventHour: 'returnsByTheHour',
-                                            evendWeekday: 'returnsByTheDayOfWeek',
+                                            evendWeekdayObj: 'returnsByTheDayOfWeek',
+                                            evendWeekdayLbl: 'day_of_week',
                                             titleDayOfWeek: 'Minä viikonpäivänä palautettiin',
                                             titleEventHour: 'Mihin aikaan palautettiin',
-                                            titleEventType: 'Mistä oltiin tulossa'
+                                            titleEventType: 'Mistä oltiin tulossa',
+                                            titleEventMonth: 'Missä kuussa lainattiin',
+                                            evendMonthObj: 'returnsByTheMonth',
+                                            eventMonthLbl: 'month'
                                          }}
                                     />
                     }

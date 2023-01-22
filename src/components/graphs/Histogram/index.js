@@ -24,7 +24,7 @@ const marginBottom = 80;    // bottom margin, in pixels
 const marginLeft = 10;      // left margin, in pixels
 
 const barValueMarginal = 10;    // pylvään arvon ja pylvään väliin jättävä hajurako
-const barLabelMarginal = 10;    // pylvään otsikon ja pylvään väliin jättävä hajurako
+const barLabelMarginal = 20;    // pylvään otsikon ja pylvään väliin jättävä hajurako
 const barValueAdjust = 6;       // kuin paljon arvon kohtaa siirretään, jotta osuu suhten keskelle pylvästä
 
 const Histogram = ({data, settings}) => {
