@@ -18,7 +18,7 @@
 
 }
 
-.steven-columns {
+.even-columns {
   display: grid;
   gap: 1rem;
 }
@@ -29,9 +29,24 @@
 }
 
 .alignCenter {
+
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.booFar {
+  display: grid;
+}
+
+@media (min-width: 1060px){
+
+  .booFar {
+    grid-template-columns: 1fr 1fr;
+    outline: 1px solid red;
+  }
+
 }
 
 @media (min-width: 50em){

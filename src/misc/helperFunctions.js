@@ -15,3 +15,4 @@ export const getWeekday = (day, month, year = 2021) => {
 
     return WEEKDAY[dayOfWeek];
 }
+

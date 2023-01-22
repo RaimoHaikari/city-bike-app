@@ -121,7 +121,10 @@ export const GENERAL_SUMMARY = gql`
                 day_of_week
                 number_of_events
             }
-        
+            events_by_month {
+                month
+                number_of_events
+            }
         }
         popularTrips{
             departureStationName

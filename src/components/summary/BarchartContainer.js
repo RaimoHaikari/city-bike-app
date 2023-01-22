@@ -8,13 +8,15 @@ import VerticalBarchart from "../../components/graphs/VerticalBarchart";
 /*
  *
  */
-const BarchartContainer = ({eventByWeekday}) => {
+const BarchartContainer = ({ data, title,  yValue }) => {
+
     return (
         <OuterContainer>
             <InnerContainer className="barChart">
-                <h3>Lainat viikonpäivittäin</h3>
+                <h3>{ title }</h3>
                 <VerticalBarchart 
-                  data={eventByWeekday}
+                  data= { data } 
+                  yValue = { yValue }
                 />
             </InnerContainer>
         </OuterContainer>

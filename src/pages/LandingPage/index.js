@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 
 import Summary from "../../components/summary";
 import WideSummary from '../../components/summary/WideSummary';
+import HorizontalBarCharts from '../../components/summary/HorizontalBarCharts';
 
 import BarchartContainer from "../../components/summary/BarchartContainer";
 import CDDContainer from '../../components/summary/CDDContainer';
@@ -11,6 +12,9 @@ import { getWeekday } from "../../misc/helperFunctions";
 import {
     GENERAL_SUMMARY
 } from "../../graphql/queries";
+
+const DAY_OF_WEEK = ["MA","TI","KE","TO","PE","LA","SU"];
+const MONTH_NAME = ['Toukokuu', 'Kesäkuu', 'Heinäkuu']
 
 const LandingPage = () => {
 
@@ -66,7 +70,9 @@ const LandingPage = () => {
     
     }
 
-    // console.log(result.data.popularTrips);
+    // Viikonpäivien graafeissa esitettävä pylvään otsikko
+    const yValue_dayOfWeek = d => DAY_OF_WEEK[d.day_of_week-1];
+    const yValue_month = d => MONTH_NAME[d.month - 5]
 
     return (
         <div className='container'>
@@ -75,12 +81,28 @@ const LandingPage = () => {
                 nOfBicycles = {result.data.summary.number_of_bikes}
                 nOfEvents = {getTotalNumberOfEvents()}
             />
+
             <WideSummary 
                 values = { getEventCountSummary() }
             />
-            <BarchartContainer 
-                eventByWeekday= { result.data.summary.events_by_the_dayOfWeek } 
-            />
+
+            <HorizontalBarCharts className="HORIZONE">
+
+                <BarchartContainer 
+                    title = "Lainat kuukauden mukaan"
+                    data = { result.data.summary.events_by_month } 
+                    yValue = { yValue_month }
+                />
+                <BarchartContainer 
+                    title = "Lainat viikonpäivittäin"
+                    data = { result.data.summary.events_by_the_dayOfWeek } 
+                    yValue = { yValue_dayOfWeek }
+                />      
+
+            </HorizontalBarCharts>
+
+          
+
             <CDDContainer 
                 popularTrips= { result.data.popularTrips }
             />

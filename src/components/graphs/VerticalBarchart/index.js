@@ -17,16 +17,12 @@ const margin = {
     left: 10
 };
 
-const DAY_OF_WEEK = ["MA","TI","KE","TO","PE","LA","SU"];
-
-const D3BarChart = ({data}) => {
+const D3BarChart = ({data, yValue}) => {
 
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
     const xValue = d => d.number_of_events;
-    const yValue = d => DAY_OF_WEEK[d.day_of_week-1];
-
 
     const xAxisLabelOffset = 60;
 

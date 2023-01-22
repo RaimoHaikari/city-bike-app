@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import HorizontalBarCharts from './HorizontalBarCharts';
 
 export const OuterContainer = styled.div`
     padding:  ${({theme}) => theme.size.size600};
@@ -23,6 +24,7 @@ export const InnerContainer = styled.div`
         letter-spacing: 4px;
     }
 
+    /* Piilotetaan pienemmiltä näytöiltä */
     @media (max-width: 50em) {
 
         &.CDD {
@@ -48,15 +50,29 @@ export const InnerContainer = styled.div`
             grid-template-columns: 300px 300px;
         }
 
+        
         &.barChart {
-            grid-template-columns: 500px;
+            grid-template-columns: 450px;
             grid-template-rows: 30px 500px;
         }
+        
 
         &.CDD {
             grid-template-columns: 800px;
             grid-template-rows: 30px 800px;
         }
+    }
+`;
+
+/*
+ * @todo: Tämä pitää saada fiksummaksi....
+ */
+export const HorizontalBarChartsContainer = styled.div`
+    display: grid;
+
+    @media (min-width: 1060px) {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
     }
 `;
 
