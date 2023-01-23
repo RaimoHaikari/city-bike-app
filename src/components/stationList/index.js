@@ -39,9 +39,9 @@ const StationList = ({alphabets, stations}) => {
                         className = {i%2===0?"tbl-row even":"tbl-row odd"}
                         onClick = {() => rowCliked(v)}
                     >
-                        <div>{v.nimi}</div>
-                        <div>{v.kaupunki}</div>
-                        <div>{v.kapasiteetti}</div>
+                        <div className="infoContainer"><span>Nimi</span>{v.nimi}</div>
+                        <div className="infoContainer"><span>Kaupunki</span>{v.kaupunki}</div>
+                        <div className="infoContainer"><span>Kapasiteetti</span>{v.kapasiteetti}</div>
                     </Container>
                 )
             })

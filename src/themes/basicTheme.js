@@ -1,4 +1,9 @@
-const BasicTheme = {
+const BasicTheme = {breakPoint
+    : {
+        xs: 0,
+        sm: '36em',
+        md: '48em'
+    },
     color: {
         clrAccent500: 'var(--clr-accent-500)',
         clrAccent400: 'var(--clr-accent-400)',

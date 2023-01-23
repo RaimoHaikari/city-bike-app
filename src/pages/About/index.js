@@ -1,8 +1,10 @@
+import LoadingAnimation from "../../components/loadingAnimation";
+
 const About = () => {
 
     return (
         <div>
-            Kertomus siitä mikä tämä sivusto on....
+            Tänne selvitys mikä tämä oikein on...
         </div>
     );
 };

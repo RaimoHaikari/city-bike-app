@@ -6,6 +6,7 @@ import HorizontalBarCharts from '../../components/summary/HorizontalBarCharts';
 
 import BarchartContainer from "../../components/summary/BarchartContainer";
 import CDDContainer from '../../components/summary/CDDContainer';
+import LoadingAnimation from "../../components/loadingAnimation"
 
 import { getWeekday } from "../../misc/helperFunctions";
 
@@ -21,7 +22,7 @@ const LandingPage = () => {
     const result = useQuery(GENERAL_SUMMARY);
 
     if(result.loading) {
-        return <div>Loading....</div>
+        return <LoadingAnimation />
     }
 
     const getTotalNumberOfEvents = () => {

@@ -23,6 +23,8 @@ import Stations from "./pages/Stations";
 import Station from "./pages/Station";
 import Journeys from "./pages/Journeys";
 
+import LoadingAnimation from "./components/loadingAnimation";
+
 import './App.css';
 
 const App = () => {
@@ -42,7 +44,7 @@ const App = () => {
   }, [result])
 
   if(result.loading) {
-      return <div>Loading....</div>
+      return <LoadingAnimation />
   }
 
   console.log(result.data);
