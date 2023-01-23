@@ -18,7 +18,7 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 
 import LandingPage from "./pages/LandingPage";
-
+import About from "./pages/About";
 import Stations from "./pages/Stations";
 import Station from "./pages/Station";
 import Journeys from "./pages/Journeys";
@@ -55,6 +55,7 @@ const App = () => {
         <Route path="/stations/:id" element={<Station />} />
         <Route path="/stations" element={<Stations />} />
         <Route path="/journeys" element={<Journeys />} />
+        <Route path="/about" element={<About />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
 

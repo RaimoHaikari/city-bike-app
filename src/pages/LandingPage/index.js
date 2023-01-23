@@ -70,8 +70,9 @@ const LandingPage = () => {
     
     }
 
-    // Viikonpäivien graafeissa esitettävä pylvään otsikko
+    // Viikonpäivien graafissa esitettävä pylvään otsikko
     const yValue_dayOfWeek = d => DAY_OF_WEEK[d.day_of_week-1];
+    // Kuukausien graafissa esitettävä pylvään otsikko.
     const yValue_month = d => MONTH_NAME[d.month - 5]
 
     return (
@@ -86,7 +87,7 @@ const LandingPage = () => {
                 values = { getEventCountSummary() }
             />
 
-            <HorizontalBarCharts className="HORIZONE">
+            <HorizontalBarCharts>
 
                 <BarchartContainer 
                     title = "Lainat kuukauden mukaan"

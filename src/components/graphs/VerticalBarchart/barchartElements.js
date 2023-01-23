@@ -7,7 +7,8 @@ export const Svg = styled.svg`
     height: intrinsic;
     outline-width: 1px;
     outline-style: solid;
-    outline-color: ${({theme}) => theme.color.clrAccent300};
+    border-radius: 5px;
+    background-color: ${({theme}) => theme.color.clrAccent100};
 
     g rect.mark {
         fill: ${({theme}) => theme.color.clrPrimary400};

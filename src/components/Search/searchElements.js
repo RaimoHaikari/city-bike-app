@@ -14,7 +14,7 @@ export const Container = styled.div`
     button.dropBtn {
         background-color: ${({theme}) => theme.color.clrAccent400};
         color: white;
-        padding: ${({theme}) => theme.size.size300};
+        padding: ${({theme}) => theme.size.size500};
         font-size: ${({theme}) => theme.fontSize.fs600};
         border: none;
         cursor: pointer;
@@ -23,6 +23,13 @@ export const Container = styled.div`
     button.dropBtn:hover,
     button.dropBtn:focus {
         background-color: ${({theme}) => theme.color.clrPrimary400};
+    }
+
+    @media (max-width: 50em) {
+
+        button.dropBtn {
+            padding: ${({theme}) => theme.size.size300};;
+        }
     }
 
     /* The search field */
@@ -70,9 +77,7 @@ export const Container = styled.div`
 
 `;
 
-export const SearchContainer = styled.div`
-
-`;
+export const SearchContainer = styled.div``;
 
 export const Input = styled.input`
     display:inline-block;

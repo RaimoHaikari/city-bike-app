@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 
-import Sitelogo from "../logos/Sitelogo";
+import BikeLogo from "../logos/BikeLogo";
 
 import DropDownSearch from "../Search/dropDownSearch";
 
+/*
+ * Perusnavigoinnin tarjoava sivuston "yläpalkki"
+ */
 const Header = () => {
 
     return (
@@ -14,7 +17,7 @@ const Header = () => {
                 <div  className="nav-wrapper">
 
                     <Link to="/">
-                        <Sitelogo />
+                        <BikeLogo />
                     </Link>
 
                     <DropDownSearch />
@@ -38,5 +41,6 @@ const Header = () => {
     );
 
 };
+
 
 export default Header;

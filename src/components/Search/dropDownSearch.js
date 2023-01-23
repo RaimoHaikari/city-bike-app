@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import {
     Container
@@ -51,7 +51,10 @@ const DropDownSearch = () => {
             <button
                 onClick={btnHandler}
                 className='dropBtn'
-            > <FontAwesomeIcon className="searchIcon" icon={faSearch} /> Asemahaku</button>
+            > 
+                <FontAwesomeIcon className="searchIcon" icon={faSearch} />
+                <span>Asemahaku</span>
+            </button>
             <div
                 id="namesDropdown" 
                 className={isOpen === true ?  'dropdownContent show' : 'dropdownContent'}

@@ -17,6 +17,12 @@ const margin = {
     left: 10
 };
 
+/*
+ * Pystysuuntainen pylväsdiagrammi.
+ *
+ * Eroaa histogrammista sikäli, että esitettävä aineisto sisältää valmiina pylväiden määrän ja korkeudet.
+ * Histogrammissa pylväiden korkeus lasketaan aineiston ja halutun pylväsmäärän perusteella.
+ */
 const D3BarChart = ({data, yValue, dispWidth=800}) => {
 
     const innerWidth = width - margin.left - margin.right;
