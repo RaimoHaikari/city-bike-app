@@ -40,6 +40,48 @@ GraphQl-kyselylle parametrinä annettavan kirjaimen arvo perustuu **searchStr-mu
 
 Palvelimelta haetut tiedot tallennetaan selaimen välimuistiin, joten (istunnon aikana) jo kertaallen haettuja tietoja ei tarvitse hakea palvelimelta enää uudelleen.
 
+#### Station
+
+Yksittäisen aseman tietojen esittäminen.
+
+Tiedot on välilehtien avulla jaettu kolmeen kategoriaan.
+
+1. Aseman perustiedot
+2. Asemalta suoritetut lainaukset
+3. Asemalle tehdyt palautukset
+
+##### 1. Home
+
+Tulostaa perustiedot ja aseman sijainnin kartalla.
+
+- Katuosoite
+- Sijaintikaupunkin
+- Asemalta lainattujen pyörin määrä tarkastelujaksolla.
+- Asemalle palautettujen pyörien määrä tarkastelujakson aikana.
+
+##### 2. LoansInfo
+
+Yhteenvedot asemalta suoritetuista lainoista ja sinne tapahtuneistaa palautuksista tulostetaan saman komponentin avulla.
+
+Molemmissa tapauksissa tiedon rakenne on täysin identtinen. Näin ollen alustuksen yhdeydessä annetut parametrit määrittävät kumpaa listausta ollaan tulostamassa.
+
+Lainausten yhteydessä esitetään seuraavat tiedot:
+
+- yleisimmät määränpäät asemalta suoritetuille lainoille
+- kuinka lainat jakaantuivat eri viikonpäivien mukaan
+- kuinka lainat jakaantuivat eri kuukausien mukaan
+- kuinka lainat jakaantuivat eri vuorokauden aikojen mukaan.
+
+Palautusten yhdessä esitetään seuraavat tiedot:
+
+- asemalle tapahtuneiden palautusten yleisimmät lähtöpisteet
+- kuinka palautukset jakaantuivat eri viikonpäivien mukaan
+- kuinka palautukset jakaantuivat eri kuukausien mukaan
+- kuinka palautukset jakaantuivat eri vuorokauden aikojen mukaan.
+
+Edellä mainitut tiedot esitetään graafien avulla. Graafit on toteutettu D3.js kirjastoa käyttäen.
+
+
 ### Ulkoasu
 
 Ulkoasu on toteuttu kahdella tasolla.

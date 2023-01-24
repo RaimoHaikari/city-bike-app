@@ -36,8 +36,8 @@ const Home = ({data}) => {
         <Container>
             <div>
                 <div className="factBox">
-                    <p>{data.station.osoite}</p>
-                    <p>{data.station.kaupunki}</p>
+                    <p><span>{data.station.osoite}</span></p>
+                    <p><span>{data.station.kaupunki}</span></p>
                     <p>Lainoja: { getNumberOfLoans() }</p>
                     <p>Palautuksia: { getNumberOfReturns() }</p>
                 </div>

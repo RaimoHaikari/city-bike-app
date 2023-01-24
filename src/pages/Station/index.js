@@ -54,12 +54,24 @@ const Station = () => {
                                             eventHour: 'departuresByTheHour',
                                             evendWeekdayObj: 'departuresByTheDayOfWeek',
                                             evendWeekdayLbl: 'day_of_week',
-                                            titleDayOfWeek: 'Minä viikonpäivänä lainattiin',
-                                            titleEventHour: 'Mihin aikaan lainattiin',
-                                            titleEventType: 'Minne oltiin menossa',
-                                            titleEventMonth: 'Missä kuussa lainattiin',
                                             evendMonthObj: 'departuresByTheMonth',
-                                            eventMonthLbl: 'month'
+                                            eventMonthLbl: 'month',
+                                            target: {
+                                                title: 'Minne oltiin menossa',
+                                                description: 'Yleisimmät määränpäät asemalta suoritetuille lainoille.'
+                                            },
+                                            dayOfWeek: {
+                                                title: 'Minä viikonpäivänä lainattiin',
+                                                description: 'Kuinka lainat jakaantuivat eri viikonpäivien mukaan.'
+                                            },
+                                            month: {
+                                                title: 'Missä kuussa lainattiin',
+                                                description: 'Kuinka lainat jakaantuivat eri kuukausien mukaan.'
+                                            },
+                                            hour: {
+                                                title: 'Mihin aikaan lainattiin',
+                                                description: 'Kuinka lainat jakaantuivat eri vuorokauden aikojen mukaan.'
+                                            }
                                          }}
                                     />
                     },
@@ -75,12 +87,24 @@ const Station = () => {
                                             eventHour: 'returnsByTheHour',
                                             evendWeekdayObj: 'returnsByTheDayOfWeek',
                                             evendWeekdayLbl: 'day_of_week',
-                                            titleDayOfWeek: 'Minä viikonpäivänä palautettiin',
-                                            titleEventHour: 'Mihin aikaan palautettiin',
-                                            titleEventType: 'Mistä oltiin tulossa',
-                                            titleEventMonth: 'Missä kuussa lainattiin',
                                             evendMonthObj: 'returnsByTheMonth',
-                                            eventMonthLbl: 'month'
+                                            eventMonthLbl: 'month',
+                                            target: {
+                                                title: 'Mistä oltiin tulossa',
+                                                description: 'Asemalle tapahtuneiden palautusten yleisimmät lähtöpisteet.'
+                                            },
+                                            dayOfWeek: {
+                                                title: 'Minä viikonpäivänä palautettiin',
+                                                description: 'Kuinka palautukset jakaantuivat eri viikonpäivien mukaan.'
+                                            },
+                                            month: {
+                                                title: 'Missä kuussa lainattiin',
+                                                description: 'Kuinka palautukset jakaantuivat eri kuukausien mukaan.'
+                                            },
+                                            hour: {
+                                                title: 'Mihin aikaan palautettiin',
+                                                description: 'Kuinka palautukset jakaantuivat eri vuorokauden aikojen mukaan.'
+                                            }
                                          }}
                                     />
                     }

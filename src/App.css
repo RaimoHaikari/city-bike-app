@@ -17,10 +17,6 @@
   background: var(--clr-neutral-100);
 }
 
-.steven-columns {
-  display: grid;
-  gap: 1rem;
-}
 
 .alignCenter {
 
