@@ -20,11 +20,6 @@ import {
     Svg
 } from "./cddElements";
 
-import {
-    EuroCrisis,
-    Names
-} from "../../../misc/mockData";
-
 import { useMatrix } from "../../../hooks/useMatrix";
 
 import LabelRing from "./LabelRing";
@@ -33,15 +28,27 @@ import Trips from "./Trips";
 
 const labelRingID = "labelRing";
 
-const CDD = ({loans}) => {
+const CDD = ({loans, arcHandler}) => {
 
     const { matrix, names } = useMatrix(loans);
+
+    console.log(loans)
 
     const width = 840;
     const height = 840;
 
-    const innerRadius = Math.min(width, height) * 0.5 - 20;
-    const outerRadius = innerRadius + 6;
+    const margins = {
+        top: 50,
+        right: 50,
+        bottom: 50,
+        left: 50
+    }
+
+    const innerWidth = width - margins.left - margins.right;
+    const innerHeight = height - margins.top - margins.bottom;
+
+    const innerRadius = Math.min(innerWidth, innerHeight) * 0.5 - 20;
+    const outerRadius = innerRadius + 25;
 
     if(matrix.length === 0) return null;
 
@@ -65,6 +72,7 @@ const CDD = ({loans}) => {
 
     return (
         <Svg viewBox={`${width/-2} ${height/-2} ${width} ${height}`}>
+
             <LabelRing 
                 id = { labelRingID }
                 outerRadius = {outerRadius}
@@ -82,32 +90,12 @@ const CDD = ({loans}) => {
                 lblRingId = { labelRingID }
                 Names = { names } 
                 outerRadius = { outerRadius }
-            />
+                arcHandler = { arcHandler }
+            />           
+
         </Svg>
     );
 };
 
 export default CDD;
 
-
-    /*
-<LabelRing 
-                id = { labelRingID }
-                outerRadius = {outerRadius}
-            />
-            <Trips 
-                color = { color }
-                chords = { chords } 
-                formatValue = { formatValue }
-                ribbon = { ribbon }
-                Names = { Names }
-            />
-            <Stations
-                arc = { arc } 
-                chords = { chords }
-                color = { color } 
-                lblRingId = { labelRingID }
-                Names = { Names } 
-                outerRadius = { outerRadius }
-            />
-    */

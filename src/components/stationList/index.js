@@ -6,6 +6,8 @@ import { ALL_STATIONS } from "../../graphql/queries"
 
 import { Container } from "./stationListElements";
 
+import LoadingAnimation from "../../components/loadingAnimation"
+
 /* 
  *
  */
@@ -21,7 +23,11 @@ const StationList = ({alphabets, stations}) => {
     });
 
     if(result.loading) {
-        return <div>Loading....</div>
+        return (
+            <LoadingAnimation 
+                msg = {`Haetaan ${searchStr} alkuiset asemat`}
+            />
+        )
     }
 
     const rowCliked = (d) => {

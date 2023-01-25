@@ -7,6 +7,7 @@ export const OuterContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
 `;
 
 /*
@@ -50,18 +51,35 @@ export const InnerContainer = styled.div`
             grid-template-columns: 300px 300px;
         }
 
-        
         &.barChart {
             grid-template-columns: 450px;
             grid-template-rows: 30px 500px;
         }
         
-
+        /*
         &.CDD {
             grid-template-columns: 800px;
             grid-template-rows: 30px 800px;
         }
+        */
+
+        &.CDD {
+
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: auto;
+
+            width: 95%;
+        }
+
     }
+
+`;
+
+export const CCDValues = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 /*

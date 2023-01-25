@@ -82,6 +82,7 @@ const LandingPage = () => {
 
     return (
         <div className='container'>
+
             <Summary 
                 nOfStations = {result.data.summary.number_of_stations}
                 nOfBicycles = {result.data.summary.number_of_bikes}
@@ -107,11 +108,10 @@ const LandingPage = () => {
 
             </HorizontalBarCharts>
 
-          
-
             <CDDContainer 
                 popularTrips= { result.data.popularTrips }
             />
+            
         </div>
     );
 };
