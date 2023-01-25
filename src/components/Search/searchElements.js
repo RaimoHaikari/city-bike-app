@@ -62,6 +62,11 @@ export const Container = styled.div`
       padding: 12px 16px;
       text-decoration: none;
       display: block;
+      cursor: pointer;
+    }
+
+    .dropdownContent P.odd {
+        background: ${({theme}) => theme.color.clrAccent100};
     }
     
     /* Change color of dropdown links on hover */

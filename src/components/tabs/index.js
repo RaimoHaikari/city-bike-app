@@ -4,7 +4,9 @@ import {
     Container
 } from "./tabElements";
 
-
+/*
+ * Välilehtien toteuttamisessa käytettävä komponetti.
+ */
 const Tabs = ({name, config}) => {
 
     const [ active, setActive ] = useState(0);

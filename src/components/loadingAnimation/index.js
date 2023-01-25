@@ -2,10 +2,10 @@ import {
     Container
 } from "./loadingAnimationElements";
 
-const LoadingAnimation = () => {
+const LoadingAnimation = ({msg = "Luetaan tietoa"}) => {
     return (
         <Container>
-            <div className="msg">Loading</div>
+            <div className="msg">{msg}</div>
         </Container>
     );
 };

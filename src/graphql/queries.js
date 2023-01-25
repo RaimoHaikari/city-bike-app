@@ -157,8 +157,10 @@ export const GET_JOUNERYS = gql`
     query getStationInfo($first: Int!, $page: Int!){
         journeys(first: $first, page: $page){ 
             data{
+                departureStationID
                 departureStationName
                 returnStationName
+                returnStationId
                 coveredDistance
                 duration
             }

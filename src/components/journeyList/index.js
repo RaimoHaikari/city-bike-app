@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; 
 import { useQuery } from '@apollo/client';
+import { useNavigate } from "react-router-dom";
 
 import {
     GET_JOUNERYS
@@ -14,11 +15,14 @@ import {
     Container
 } from "./journeyListElements";
 
+import LoadingAnimation from "../loadingAnimation";
+
 //import JourneyListItem from "./JourneyListItem";
 
 const JourneyList = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const { page, first } = useSelector(state => state.search);
 
@@ -43,7 +47,11 @@ const JourneyList = () => {
     
 
     if(result.loading) {
-        return <div>Loading....</div>
+        return (
+            <LoadingAnimation
+                msg="Haetaan matkalistausta"
+            />
+        )
     }
 
 
@@ -64,6 +72,10 @@ const JourneyList = () => {
         return `${km.toFixed(1)} km`;
     }
 
+    const rowClicked = (id) => {
+        navigate(`/stations/${id}`);
+    }
+
     return (
         <>
         {
@@ -73,10 +85,14 @@ const JourneyList = () => {
                         key = {`jList-item-${index}`}
                         className = {index%2===0?"tbl-row even":"tbl-row odd"}
                     >
-                        <div>{ d.departureStationName }</div>
-                        <div>{ d.returnStationName }</div>
-                        <div>{ metersToKm(d.coveredDistance) }</div>
-                        <div>{ secondsToHms(d.duration) }</div>
+                        <div className="hasLink" onClick = {() => rowClicked(d.departureStationID)}>
+                            <span className="label">Lainausasema</span>{ d.departureStationName }
+                        </div>
+                        <div className="hasLink" onClick = {() => rowClicked(d.returnStationId)}>
+                            <span className="label">Palautusasema</span>{ d.returnStationName }
+                        </div>
+                        <div><span className="label">Matkan pituus</span>{ metersToKm(d.coveredDistance) }</div>
+                        <div><span className="label">Matkan kesto</span>{ secondsToHms(d.duration) }</div>
 
                     </Container> 
                 )

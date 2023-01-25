@@ -1,12 +1,12 @@
-import { Container } from "../journeyListElements";
+import { Container } from "./headerElements";
 
 const Header = () => {
     return (
-        <Container className="header">
-            <div>Lainausasema</div>
-            <div>Palautusasema</div>
-            <div>Matkan pituus</div>
-            <div>Kesto</div>
+        <Container>
+            <div className="title">Lainausasema</div>
+            <div className="title">Palautusasema</div>
+            <div className="title">Matkan pituus</div>
+            <div className="title">Kesto</div>
         </Container>
     );
 };

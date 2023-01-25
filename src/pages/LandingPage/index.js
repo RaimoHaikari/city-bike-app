@@ -22,7 +22,11 @@ const LandingPage = () => {
     const result = useQuery(GENERAL_SUMMARY);
 
     if(result.loading) {
-        return <LoadingAnimation />
+        return (
+            <LoadingAnimation 
+                msg='Luetaan toiminnan yleistiedot'
+            />
+        )
     }
 
     const getTotalNumberOfEvents = () => {

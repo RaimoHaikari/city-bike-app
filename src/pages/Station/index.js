@@ -5,6 +5,8 @@ import LoansInfo from '../../components/station/LoansInfo';
 import Home from '../../components/station';
 import Tabs from '../../components/tabs';
 
+import LoadingAnimation from '../../components/loadingAnimation';
+
 import {
     GET_STATION_INFO
 } from "../../graphql/queries";
@@ -25,7 +27,11 @@ const Station = () => {
     )
 
     if(result.loading) {
-        return <div>Loading....</div>
+        return (
+            <LoadingAnimation 
+                msg='Haetaan aseman tiedot'
+            />
+        )
     }
 
     /*

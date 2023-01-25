@@ -70,11 +70,12 @@ const DropDownSearch = () => {
                 <div className="listWrapper">
 
                 {
-                    getStationList().map((n) => {
+                    getStationList().map((n, index) => {
                         return (
                             <p
                                 key = {`st-namelist-item-${n.stationID}`}
                                 onClick = {() => clkHandler(n.stationID)}
+                                className = {index%2===0?"even":"odd"}
                             >
                                 {n.nimi}
                             </p>

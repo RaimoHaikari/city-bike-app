@@ -44,10 +44,13 @@ const App = () => {
   }, [result])
 
   if(result.loading) {
-      return <LoadingAnimation />
+      return (
+        <LoadingAnimation 
+          msg="Haetaan lainausasemien nimet"
+        />
+      )
   }
 
-  console.log(result.data);
 
   return (
     <Router>

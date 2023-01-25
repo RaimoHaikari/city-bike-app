@@ -9,9 +9,9 @@ export const Container = styled.div`
     width: 100%;
 
     div.title {
-        /* padding: 50px 20px 100px; */
-        padding-top: ${({theme}) => theme.size.size400};
-        padding-bottom: ${({theme}) => theme.size.size900};
+        margin-top: ${({theme}) => theme.size.size200};
+        padding-top: ${({theme}) => theme.size.size300};
+        padding-bottom: ${({theme}) => theme.size.size800};
         text-align:  center;
         font-size: ${({theme}) => theme.fontSize.fs700};
         color:${({theme}) => theme.color.clrAccent100};
@@ -36,6 +36,7 @@ export const Container = styled.div`
         z-index: 2;
     }
 
+    /* Navigointivaihtoehdot */
     div.tab-header > div {
         width: 25%;
         text-align: center;
@@ -45,6 +46,14 @@ export const Container = styled.div`
         cursor: pointer;
         transition: color 300ms ease-in-out;
     }
+
+@media screen and (max-width: ${({theme}) => theme.breakPoint.md}){
+
+    div.tab-header > div {
+        font-size:  ${({theme}) => theme.fontSize.fs300};
+    }
+
+}
 
     div.tab-header > div.active {
         color: ${({theme}) => theme.color.clrPrimary400};
@@ -58,12 +67,14 @@ export const Container = styled.div`
 
     div.tab-indicator > div {
         position: absolute;
+        padding: 2px;
         /* left: 0%; */
         width: 25%;
         height: 100%;
         background: ${({theme}) => theme.color.clrNeutral100};
         border-radius: 10px 10px 0px 0px;
         transition: all 300ms ease-in-out;
+margin-left: ${({theme}) => theme.size.size100};
     }
 
 

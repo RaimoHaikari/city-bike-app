@@ -5,8 +5,7 @@ export const Container = styled.div`
     display: grid;
     gap: 1rem;
 
-
-    @media (min-width: 50em) {
+    @media screen and (min-width: ${({theme}) => theme.breakPoint.md}){
         grid-template-columns: 1fr 1fr 2fr;
     }
 
