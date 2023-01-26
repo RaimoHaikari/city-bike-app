@@ -6,7 +6,8 @@ import HorizontalBarCharts from '../../components/summary/HorizontalBarCharts';
 
 import BarchartContainer from "../../components/summary/BarchartContainer";
 import CDDContainer from '../../components/summary/CDDContainer';
-import LoadingAnimation from "../../components/loadingAnimation"
+import CDDTitleRow from '../../components/summary/CDDTitleRow';
+import LoadingAnimation from "../../components/loadingAnimation";
 
 import { getWeekday } from "../../misc/helperFunctions";
 
@@ -108,10 +109,12 @@ const LandingPage = () => {
 
             </HorizontalBarCharts>
 
+            <CDDTitleRow />
+
             <CDDContainer 
                 popularTrips= { result.data.popularTrips }
             />
-            
+
         </div>
     );
 };

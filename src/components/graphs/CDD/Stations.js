@@ -1,5 +1,9 @@
-const Stations = ({arc, chords, color, lblRingId, Names, outerRadius, arcHandler}) => {
+const Stations = ({arc, chords, color, lblRingId, Names, outerRadius, arcHandler, activeIndex}) => {
 
+    /*
+                            onMouseOut = {() => arcHandler(activeIndex, [])}
+                            onMouseEnter = {() => arcHandler(d.index, Names[d.index])}
+    */
     return (
         <g>
         {
@@ -10,7 +14,7 @@ const Stations = ({arc, chords, color, lblRingId, Names, outerRadius, arcHandler
                         <path 
                             d = { arc(d) }
                             fill = { color(Names[d.index]) }
-                            onClick = {() => arcHandler(Names[d.index])}
+                            onClick = {() => arcHandler(d.index, Names[d.index])}
                             className = "stationArc"
                         />
                         <text 

@@ -56,30 +56,47 @@ export const InnerContainer = styled.div`
             grid-template-rows: 30px 500px;
         }
         
-        /*
-        &.CDD {
-            grid-template-columns: 800px;
-            grid-template-rows: 30px 800px;
-        }
-        */
 
         &.CDD {
 
             grid-template-columns: 1fr 3fr 1fr;
             grid-template-rows: auto;
 
-            width: 95%;
+            width: 100%;
+
         }
 
     }
 
 `;
 
+export const CCDWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 export const CCDValues = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
+
+    &:last-of-type {
+        align-items: end;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-size: ${({theme}) => theme.fontSize.fs600};
+        font-weight: ${({theme}) => theme.fontWeight.fwReqular};
+        letter-spacing: 1px;
+    }
+    
+    div.cddValueClass {
+        margin: ${({theme}) => theme.size.size200} 0;
+        font-weight: ${({theme}) => theme.fontWeight.fwBold};
+    }
 `;
 
 /*
@@ -126,4 +143,12 @@ export const Info = styled.div`
         letter-spacing: 2px;
         text-transform: uppercase;
     }
+`;
+
+export const CDDTitleRowContainer = styled.h3`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: ${({theme}) => theme.fontSize.fs700};
+    font-weight: ${({theme}) => theme.fontWeight.fwBold};
 `;

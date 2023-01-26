@@ -4,6 +4,11 @@ export const Svg = styled.svg`
 
     path.chords {
         mix-blend-mode: multiply;
+        fill-opacity: 0.2;
+    }
+
+    path.active {
+        fill-opacity: 1;
     }
 
     path.stationArc {

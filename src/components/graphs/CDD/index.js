@@ -7,6 +7,9 @@
  *
  */
 
+import { useEffect } from "react";
+import { useTimer } from "../../../hooks/useTimer";
+
 import {
     arc as d3Arc,
     chordDirected,
@@ -28,11 +31,32 @@ import Trips from "./Trips";
 
 const labelRingID = "labelRing";
 
-const CDD = ({loans, arcHandler}) => {
+/*
+ * @activeIndex: kehätä aktivoidun aseman indeksi matkat kokoavassa matriisissa
+ */
+const CDD = ({loans, arcHandler, activeIndex}) => {
 
     const { matrix, names } = useMatrix(loans);
 
-    console.log(loans)
+    const { 
+        index,
+        startTimer,
+        stopTimer,
+        setLength
+    } = useTimer();
+
+    useEffect(() => {
+        setLength(names.length);
+        startTimer();
+    }, [names])
+
+    useEffect(() => {
+
+        if(typeof(names[index]) !== 'undefined'){
+            arcHandler(index, names[index]);
+        }
+        
+    }, [index])
 
     const width = 840;
     const height = 840;
@@ -69,9 +93,18 @@ const CDD = ({loans, arcHandler}) => {
 
     const color = scaleOrdinal(names, schemeCategory10);
 
+    /*
+     * Mikäli otsikkokaarta on klikattu, pysäytetään automaattinen toisto
+     * ja välitetään aktiivisen valinnan tiedot eteenpäin.
+     */  
+    const arcHandlerMiddleWare = (stationIndex, stationName) => {
+        stopTimer();
+        arcHandler(stationIndex, stationName);
+    }
 
     return (
-        <Svg viewBox={`${width/-2} ${height/-2} ${width} ${height}`}>
+
+        <Svg width = "500" viewBox={`${width/-2} ${height/-2} ${width} ${height}`}>
 
             <LabelRing 
                 id = { labelRingID }
@@ -82,6 +115,7 @@ const CDD = ({loans, arcHandler}) => {
                 chords = { chords } 
                 ribbon = { ribbon }
                 Names = { names }
+                activeIndex = {activeIndex}
             />
             <Stations
                 arc = { arc } 
@@ -90,10 +124,12 @@ const CDD = ({loans, arcHandler}) => {
                 lblRingId = { labelRingID }
                 Names = { names } 
                 outerRadius = { outerRadius }
-                arcHandler = { arcHandler }
+                arcHandler = { arcHandlerMiddleWare }
+                activeIndex = {activeIndex}
             />           
 
         </Svg>
+
     );
 };
 
