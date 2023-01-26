@@ -16,7 +16,7 @@ import {
 } from "../../graphql/queries";
 
 const DAY_OF_WEEK = ["MA","TI","KE","TO","PE","LA","SU"];
-const MONTH_NAME = ['Toukokuu', 'Kesäkuu', 'Heinäkuu']
+const MONTH_NAME = ['Toukokuu', 'Kesäkuu', 'Heinäkuu'];
 
 const LandingPage = () => {
 
@@ -84,6 +84,12 @@ const LandingPage = () => {
     return (
         <div className='container'>
 
+            <CDDTitleRow />
+
+            <CDDContainer 
+                popularTrips= { result.data.popularTrips }
+            />
+
             <Summary 
                 nOfStations = {result.data.summary.number_of_stations}
                 nOfBicycles = {result.data.summary.number_of_bikes}
@@ -108,12 +114,6 @@ const LandingPage = () => {
                 />      
 
             </HorizontalBarCharts>
-
-            <CDDTitleRow />
-
-            <CDDContainer 
-                popularTrips= { result.data.popularTrips }
-            />
 
         </div>
     );

@@ -151,4 +151,6 @@ export const CDDTitleRowContainer = styled.h3`
     justify-content: center;
     font-size: ${({theme}) => theme.fontSize.fs700};
     font-weight: ${({theme}) => theme.fontWeight.fwBold};
+    letter-spacing: 4px;
+    text-transform: uppercase;
 `;

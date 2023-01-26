@@ -1,10 +1,46 @@
-SolitaDev Academyn esivalintatehtävän front end.
+# Helsinki city bike app
+
+SolitaDev Academyn [esivalintatehtävän](https://github.com/solita/dev-academy-2023-exercise) front end.
 
 Kyseessä on Reactilla toteutettu SPA -sovellus.
 
-Back end löytyy osoitteesta [http://graafeja.tahtisadetta.fi/](http://graafeja.tahtisadetta.fi/)
-Ja Back Endin repository [https://github.com/RaimoHaikari/graafeja](https://github.com/RaimoHaikari/graafeja).
+### Asentaminen
 
+git clone https://github.com/RaimoHaikari/city-bike-app.git
+
+npm install
+npm start
+
+GraphQl-kyselyjen edellyttämä osoite on kovakoodattu index.js tiedostoon.
+
+### Back End
+
+Back End löytyy osoitteesta [http://graafeja.tahtisadetta.fi/](http://graafeja.tahtisadetta.fi/)
+
+Back Endin repository [https://github.com/RaimoHaikari/graafeja](https://github.com/RaimoHaikari/graafeja)
+
+Yhteydenpito front endin ja back endin välillä tapahtuu GraphQl-kyselyjen avulla.
+
+### Sisäinen tilan hallinta
+
+Sovelluksen sisäinen tilan hallintaan käytetään Redux varastoa.
+
+Varastoon on tallennettu seuraavien muuttujien tila:
+
+| Command | Description |
+| --- | --- |
+| searchStr | Asemanimen hakukentän arvot |
+| initialLetters | Suomenkielisten asemanimien alkukirjaimet |
+| finnishNames | Suomenkieliset asemanimet |
+| page | Lainauslistauksen aktiivinen sivu |
+| first | Palvelimelta yhdellä kertaa haettavien lainarivien lukumäärä |
+| firstPage | Lainauslistan ensimmäinen sivu |
+| prevPage | Lainauslistalla aktiivista sivua edeltävä sivu |
+| lastPage | Lainauslistalla aktiivista sivua seuraava sivu |
+| lastPage | Lainauslistan viimeinen sivu |
+
+
+### Ulkoasun rakenne
 
 Käyttöliittymä muodostuu seuraavista sivusta:
 
@@ -95,6 +131,8 @@ Edellä mainitut tiedot esitetään graafien avulla. Graafit on toteutettu D3.js
 Sitoo edellä luetellut komponentit yhdeksi kokonaisuudeksi, jossa yleistiedot, lainat ja palautukset esitetään kukin omalla välilehdellään.
 
 #### 4. Journeys
+
+Sivulla listataan pöyrillä tehtyjä lainamatkoja.
 
 Sivun layout toteutetaan seuraavien komponettien avulla.
 

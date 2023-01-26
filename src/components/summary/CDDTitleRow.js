@@ -3,7 +3,7 @@ import {CDDTitleRowContainer} from "./summaryElements"
 const CDDTitleRow = () => {
     return (
         <CDDTitleRowContainer>
-            Suosituimpien aseminen välinen keskinäinen liikenne
+            Suosituimpien asemien keskinäinen liikenne
         </CDDTitleRowContainer>
     );
 };

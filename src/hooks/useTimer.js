@@ -16,7 +16,7 @@ export const useTimer = () => {
     const startTimer = () => {
 
         if (!hasTimerEnded && !isTimerRunning) {
-            _intervalID.current = setInterval(update, 1000);
+            _intervalID.current = setInterval(update, 4000);
         }
 
     }

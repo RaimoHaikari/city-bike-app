@@ -22,7 +22,7 @@ const Trips = ({ color, chords, ribbon, Names, activeIndex}) => {
                     >
                         <title>
                         {
-                            `${Names[d.source.index]} owes ${Names[d.target.index]} ${d.source.value}`
+                            `${Names[d.source.index]} -> ${Names[d.target.index]} ${d.source.value}`
                         }
                         </title>
                     </path>
