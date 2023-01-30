@@ -22,7 +22,7 @@ export const InnerContainer = styled.div`
         text-transform: uppercase;
         font-size: ${({theme}) => theme.fontSize.fs600};
         font-weight: ${({theme}) => theme.fontWeight.fwBold};
-        letter-spacing: 4px;
+        letter-spacing: 2px;
     }
 
     /* Piilotetaan pienemmiltä näytöiltä */
@@ -52,8 +52,8 @@ export const InnerContainer = styled.div`
         }
 
         &.barChart {
-            grid-template-columns: 450px;
-            grid-template-rows: 30px 500px;
+            grid-template-columns: 500px;
+            grid-template-rows: 30px 500px 30px;
         }
         
 
@@ -153,4 +153,20 @@ export const CDDTitleRowContainer = styled.h3`
     font-weight: ${({theme}) => theme.fontWeight.fwBold};
     letter-spacing: 4px;
     text-transform: uppercase;
+
+    /* Piilotetaan pienemmiltä näytöiltä */
+    @media (max-width: 50em) {
+
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        white-space: nowrap; /* added line */
+        border: 0;
+        
+    }
 `;

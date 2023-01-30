@@ -33,7 +33,7 @@ export const Container = styled.div`
     }
 
     div.msg {
-        font-size: ${({theme}) => theme.fontSize.fs900};
+        font-size: ${({theme}) => theme.fontSize.fs700};
         margin-top: ${({theme}) => theme.size.size800};
         color: ${({theme}) => theme.color.clrAccent400};
     }

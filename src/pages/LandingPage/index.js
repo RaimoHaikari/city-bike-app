@@ -4,6 +4,12 @@ import Summary from "../../components/summary";
 import WideSummary from '../../components/summary/WideSummary';
 import HorizontalBarCharts from '../../components/summary/HorizontalBarCharts';
 
+// Pystysuuntaisilla teksteillä varustettu histogrammi
+import BCVerticalLabels from "../../components/graphs/VerticalBarchartLbls";
+
+// Vaakasuuntaisilla teksteillä varustettu histogrammi
+import BCHorizontalLabels from "../../components/graphs/VerticalBarchart";
+
 import BarchartContainer from "../../components/summary/BarchartContainer";
 import CDDContainer from '../../components/summary/CDDContainer';
 import CDDTitleRow from '../../components/summary/CDDTitleRow';
@@ -17,6 +23,11 @@ import {
 
 const DAY_OF_WEEK = ["MA","TI","KE","TO","PE","LA","SU"];
 const MONTH_NAME = ['Toukokuu', 'Kesäkuu', 'Heinäkuu'];
+
+/* Kuinka kauan kestäneet matkat huomioidaan laina-aikoja kuvaavassa graafissa */
+const MAX_TRIP_DURATION = 60;
+/* Kuinka pitkät matkat huomioidaan lainamatkoija kuvaavassa graafissa */
+const MAX_TRIP_DISTANCE = 10000;
 
 const LandingPage = () => {
 
@@ -39,6 +50,50 @@ const LandingPage = () => {
         });
 
         return sum;
+    }
+
+   /*
+     * Lasketaan kuinka monta prosenttia matkoista lukeutuu
+     * matkan kestoa kuvaavan graafin aikavälille
+     */
+   const getDistancePercentage = () => {
+
+    let total = 0;
+    let selected = 0;
+
+    result.data.tripsByDuration.forEach(t => {
+
+        if(t.bin < MAX_TRIP_DISTANCE)
+            selected = selected + t.number_of_events
+
+            total = total + t.number_of_events
+
+    })
+
+    return (Math.floor((selected / total) * 100)); 
+
+}
+
+   /*
+     * Lasketaan kuinka monta prosenttia matkoista lukeutuu
+     * matkan kestoa kuvaavan graafin aikavälille
+     */
+   const getDurationPercentage = () => {
+
+        let total = 0;
+        let selected = 0;
+
+        result.data.tripsByDuration.forEach(t => {
+
+            if(t.bin < MAX_TRIP_DURATION)
+                selected = selected + t.number_of_events
+
+                total = total + t.number_of_events
+
+        })
+
+        return (Math.floor((selected / total) * 100)); 
+
     }
 
     const getEventCountSummary = () => {
@@ -79,16 +134,20 @@ const LandingPage = () => {
     // Viikonpäivien graafissa esitettävä pylvään otsikko
     const yValue_dayOfWeek = d => DAY_OF_WEEK[d.day_of_week-1];
     // Kuukausien graafissa esitettävä pylvään otsikko.
-    const yValue_month = d => MONTH_NAME[d.month - 5]
+    const yValue_month = d => MONTH_NAME[d.month - 5];
+
+    // Matkan pituuksien graafissa esitettävien pylväiden otsikot
+    const yValue_tripLen = d => `~ ${d.bin} m`;
+
+    // Matkojen keston graafissa esitettävien pylväiden otsikot
+    const yValue_tripDur = d => `~ ${d.bin} min`;
+
+ 
+
+    console.log(getDurationPercentage())
 
     return (
         <div className='container'>
-
-            <CDDTitleRow />
-
-            <CDDContainer 
-                popularTrips= { result.data.popularTrips }
-            />
 
             <Summary 
                 nOfStations = {result.data.summary.number_of_stations}
@@ -104,16 +163,61 @@ const LandingPage = () => {
 
                 <BarchartContainer 
                     title = "Lainat kuukauden mukaan"
-                    data = { result.data.summary.events_by_month } 
-                    yValue = { yValue_month }
-                />
+                    caption = ""
+                >
+                    <BCHorizontalLabels 
+                        data = { result.data.summary.events_by_month } 
+                        yValue = { yValue_month }
+                    />
+                </BarchartContainer>
+
                 <BarchartContainer 
                     title = "Lainat viikonpäivittäin"
-                    data = { result.data.summary.events_by_the_dayOfWeek } 
-                    yValue = { yValue_dayOfWeek }
-                />      
+                    caption = ""
+                >   
+                    <BCHorizontalLabels 
+                        data = { result.data.summary.events_by_the_dayOfWeek } 
+                        yValue = { yValue_dayOfWeek }
+                    />
+                </BarchartContainer>   
 
             </HorizontalBarCharts>
+
+
+
+            <HorizontalBarCharts>
+
+                <BarchartContainer 
+                    title = "Lainat matkan pituuden mukaan"
+                    caption = {`${getDistancePercentage()} %:a matkoista oli enintään 10 km pituisia`}
+                >
+                    <BCVerticalLabels 
+                        data = { result.data.tripsByDistance.filter(t => t.bin < 10000) } 
+                        yValue = { yValue_tripLen }
+                    />
+                </BarchartContainer>
+
+                <BarchartContainer 
+                    title = "Matkat laina-ajan mukaan"
+                    caption = {`${getDurationPercentage()} %:a matkoista kesti korkeintaan tunnin`}
+                >   
+                    <BCVerticalLabels 
+                        data = { result.data.tripsByDuration.filter(t => t.bin < MAX_TRIP_DURATION) } 
+                        yValue = { yValue_tripDur }
+                    />
+                </BarchartContainer>   
+
+            </HorizontalBarCharts>
+
+
+
+            <CDDTitleRow />
+
+            <CDDContainer 
+                popularTrips= { result.data.popularTrips }
+            />
+
+
 
         </div>
     );

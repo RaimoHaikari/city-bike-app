@@ -3,21 +3,22 @@ import {
     InnerContainer
 } from "./summaryElements";
 
-import VerticalBarchart from "../../components/graphs/VerticalBarchart";
 
 /*
  *
  */
-const BarchartContainer = ({ data, title,  yValue }) => {
+const BarchartContainer = (props) => {
+
+    const { caption, title } = props;
 
     return (
         <OuterContainer>
             <InnerContainer className="barChart">
                 <h3>{ title }</h3>
-                <VerticalBarchart 
-                  data= { data } 
-                  yValue = { yValue }
-                />
+                {
+                    props.children
+                }
+                <p>{caption}</p>
             </InnerContainer>
         </OuterContainer>
     );

@@ -140,6 +140,14 @@ export const GENERAL_SUMMARY = gql`
                 number_of_events
             }
         }
+        tripsByDistance {
+            bin
+            number_of_events
+        }
+        tripsByDuration {
+            bin
+            number_of_events
+        }
         popularTrips{
             departureStationName
             returnStationName

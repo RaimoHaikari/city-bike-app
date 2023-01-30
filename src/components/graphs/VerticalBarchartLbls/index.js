@@ -11,9 +11,9 @@ const width = 800;
 const height = 800;
 
 const margin = {
-    top: 80,
+    top: 150,
     right: 10,
-    bottom: 50,
+    bottom: 150,
     left: 10
 };
 
