@@ -142,9 +142,6 @@ const LandingPage = () => {
     // Matkojen keston graafissa esitettävien pylväiden otsikot
     const yValue_tripDur = d => `~ ${d.bin} min`;
 
- 
-
-    console.log(getDurationPercentage())
 
     return (
         <div className='container'>

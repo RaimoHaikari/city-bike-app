@@ -54,6 +54,8 @@ const Station = () => {
                                         data = {result.data} 
                                         settings = {{ 
                                             loansData: 'departedTrips',
+                                            durationData: 'departedDuration',
+                                            distanceData: 'departedDistance',
                                             eventObj: 'returnStationNimi',
                                             linkObj: 'returnStationID',
                                             xAxisLabel: 'Lainauksia',
@@ -62,6 +64,14 @@ const Station = () => {
                                             evendWeekdayLbl: 'day_of_week',
                                             evendMonthObj: 'departuresByTheMonth',
                                             eventMonthLbl: 'month',
+                                            distance: {
+                                                title: 'Ajettu matka',
+                                                description: 'Matkan pituus 500 m koreihin jaoteltuna. Graafissa alle 10 km mittaiset matkat. Tämä käsittää 98% tehdyistä lainoista.'
+                                            },
+                                            duration: {
+                                                title: 'Laina-aika',
+                                                description: 'Lainan kesto 5 minuutin koreihin jaoteltuna. Graafissa on huomioitu matkat, jotka kestivät alle tunnin. Tämä käsittää 99% tehdyistä lainoista.'
+                                            },
                                             target: {
                                                 title: 'Minne oltiin menossa',
                                                 description: 'Yleisimmät määränpäät asemalta suoritetuille lainoille.'
@@ -87,6 +97,8 @@ const Station = () => {
                                         data = {result.data} 
                                         settings = {{ 
                                             loansData: 'returnedTrips',
+                                            durationData: 'returnedDuration',
+                                            distanceData: 'returnedDistance',
                                             eventObj: 'departureStationNimi',
                                             linkObj: 'departureStationID',
                                             xAxisLabel: 'Palautuksia',
@@ -95,6 +107,14 @@ const Station = () => {
                                             evendWeekdayLbl: 'day_of_week',
                                             evendMonthObj: 'returnsByTheMonth',
                                             eventMonthLbl: 'month',
+                                            distance: {
+                                                title: 'Ajettu matka',
+                                                description: 'Matkan pituus 500 m koreihin jaoteltuna. Graafissa alle 10 km mittaiset matkat. Tämä käsittää 98% tehdyistä lainoista.'
+                                            },
+                                            duration: {
+                                                title: 'Matkat laina-ajan mukaan',
+                                                description: 'Kuinka kauan pyörää tyypillisesti lainattiin'
+                                            },
                                             target: {
                                                 title: 'Mistä oltiin tulossa',
                                                 description: 'Asemalle tapahtuneiden palautusten yleisimmät lähtöpisteet.'

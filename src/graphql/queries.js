@@ -102,6 +102,22 @@ export const GET_STATION_INFO = gql`
             month
             number_of_events
         }
+        departedDuration:tripsByDuration(departureStationID: $stationId){
+            bin
+            number_of_events
+        }
+        returnedDuration:tripsByDuration(returnStationID: $stationId){
+            bin
+            number_of_events
+        }
+        departedDistance:tripsByDistance(departureStationID: $stationId){
+            bin
+            number_of_events
+        }
+        returnedDistance:tripsByDistance(returnStationID: $stationId){
+            bin
+            number_of_events
+        }
     }
 `;
 
